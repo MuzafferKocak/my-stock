@@ -1,19 +1,21 @@
-import Avatar from "@mui/material/Avatar"
-import Container from "@mui/material/Container"
-import Grid from '@mui/material/Grid2'
-import Typography from "@mui/material/Typography"
-import LockIcon from "@mui/icons-material/Lock"
-import image from "../assets/result.svg"
-import { Link } from "react-router-dom"
-import Box from "@mui/material/Box"
-import TextField from "@mui/material/TextField"
-import { Button } from "@mui/material"
+import Avatar from "@mui/material/Avatar";
+import Container from "@mui/material/Container";
+import Grid from "@mui/material/Grid2";
+import Typography from "@mui/material/Typography";
+import LockIcon from "@mui/icons-material/Lock";
+import image from "../assets/result.svg";
+import { Link } from "react-router-dom";
+import Box from "@mui/material/Box";
+import TextField from "@mui/material/TextField";
+import { Button } from "@mui/material";
+import { Formik } from "formik";
 
 const Login = () => {
-    return (
+  const loginSchema = {};
+
+  return (
     <Container maxWidth="sm">
       <Box
-      
         container
         justifyContent="center"
         direction="row-reverse"
@@ -47,11 +49,14 @@ const Login = () => {
           >
             Login
           </Typography>
-
-          <Box
-            component="form"
-            sx={{ display: "flex", flexDirection: "column", gap: 2 }}
-          >
+          <Formik
+            initialValues={{ email: "", password: "" }}
+            validationSchema={loginSchema}
+            onSubmit={(values, actions) => {
+              
+            }}
+          ></Formik>
+          <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
             <TextField
               label="Email"
               name="email"
@@ -83,7 +88,7 @@ const Login = () => {
         </Grid>
       </Box>
     </Container>
-  )
-}
+  );
+};
 
-export default Login
+export default Login;
