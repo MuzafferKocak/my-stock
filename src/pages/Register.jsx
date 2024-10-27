@@ -1,22 +1,21 @@
-import Container from "@mui/material/Container"
-import Typography from "@mui/material/Typography"
-import Avatar from "@mui/material/Avatar"
-import LockIcon from "@mui/icons-material/Lock"
-import image from "../assets/result.svg"
-import Grid2 from "@mui/material/Grid2"
-import Box from "@mui/material/Box"
-import Button from "@mui/material/Button"
-import { Link, useNavigate } from "react-router-dom"
+import Container from "@mui/material/Container";
+import Typography from "@mui/material/Typography";
+import Avatar from "@mui/material/Avatar";
+import LockIcon from "@mui/icons-material/Lock";
+import image from "../assets/result.svg";
+import Grid from "@mui/material/Grid2";
+import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
+import { Link, useNavigate } from "react-router-dom";
+import TextField from "@mui/material/TextField";
 
-import TextField from "@mui/material/TextField"
 
 const Register = () => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   return (
-    <Container maxWidth="lg">
-      <Grid2
-        container
+    <Container maxWidth="sm">
+      <Grid
         justifyContent="center"
         direction="row-reverse"
         rowSpacing={{ sm: 3 }}
@@ -25,13 +24,13 @@ const Register = () => {
           p: 2,
         }}
       >
-        <Grid2 item xs={12}>
+        <Grid item xs={12}>
           <Typography variant="h3" color="primary" align="center">
             STOCK APP
           </Typography>
-        </Grid2>
+        </Grid>
 
-        <Grid2 item xs={12} sm={10} md={6}>
+        <Grid item xs={12} sm={10} md={6}>
           <Avatar
             sx={{
               backgroundColor: "secondary.light",
@@ -98,16 +97,16 @@ const Register = () => {
           <Box sx={{ textAlign: "center", mt: 2 }}>
             <Link to="/">Do you have an account?</Link>
           </Box>
-        </Grid2>
+        </Grid>
 
-        <Grid2 item xs={0} sm={7} md={6}>
+        <Grid item xs={0} sm={7} md={6}>
           <Container>
             <img src={image} alt="" />
           </Container>
-        </Grid2>
-      </Grid2>
+        </Grid>
+      </Grid>
     </Container>
-  )
-}
+  );
+};
 
-export default Register
+export default Register;

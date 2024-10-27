@@ -1,6 +1,6 @@
 import Avatar from "@mui/material/Avatar"
 import Container from "@mui/material/Container"
-import Grid2 from "@mui/material/Grid2"
+import Grid from '@mui/material/Grid2'
 import Typography from "@mui/material/Typography"
 import LockIcon from "@mui/icons-material/Lock"
 import image from "../assets/result.svg"
@@ -11,8 +11,9 @@ import { Button } from "@mui/material"
 
 const Login = () => {
     return (
-    <Container maxWidth="lg">
-      <Grid2
+    <Container maxWidth="sm">
+      <Box
+      
         container
         justifyContent="center"
         direction="row-reverse"
@@ -21,13 +22,13 @@ const Login = () => {
           p: 2,
         }}
       >
-        <Grid2 item xs={12} mb={3}>
+        <Grid item xs={12} mb={3}>
           <Typography variant="h3" color="primary" align="center">
             STOCK APP
           </Typography>
-        </Grid2>
+        </Grid>
 
-        <Grid2 item xs={12} sm={10} md={6}>
+        <Grid item xs={12} sm={10} md={6}>
           <Avatar
             sx={{
               backgroundColor: "secondary.light",
@@ -73,14 +74,14 @@ const Login = () => {
           <Box sx={{ textAlign: "center", mt: 2 }}>
             <Link to="/register">Do you have not an account?</Link>
           </Box>
-        </Grid2>
+        </Grid>
 
-        <Grid2 item xs={10} sm={7} md={6}>
+        <Grid xs={10} sm={7} md={6}>
           <Container>
             <img src={image} alt="img" />
           </Container>
-        </Grid2>
-      </Grid2>
+        </Grid>
+      </Box>
     </Container>
   )
 }
