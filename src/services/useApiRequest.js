@@ -4,12 +4,12 @@ import { fetchFail, fetchStart, loginSuccess } from "../features/authSlice";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
+//? Custom Hook
 const useApiRequest = () => {
   const dispatch = useDispatch();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const login = async (userData) => {
     // const BASE_URL = "https://19229.fullstack.clarusway.com";
-    
 
     dispatch(fetchStart());
     try {
@@ -19,17 +19,15 @@ const useApiRequest = () => {
       );
       dispatch(loginSuccess(data));
       toastSuccessNotify("");
-      navigate("/stock")
+      navigate("/stock");
     } catch (error) {
       dispatch(fetchFail());
       toastErrorNotify("");
       console.log(error);
     }
   };
-  const register = async ()=>{
-  }
-  const logout = async ()=>{
-  }
+  const register = async () => {};
+  const logout = async () => {};
   return { login, register, logout };
 };
 

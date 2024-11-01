@@ -6,12 +6,15 @@ import image from "../assets/result.svg";
 import Grid from "@mui/material/Grid2";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import TextField from "@mui/material/TextField";
+import useApiRequest from "../services/useApiRequest";
+import { Formik } from "formik";
+import RegisterForm, { registerSchema } from "../components/RegisterForm";
 
 
 const Register = () => {
-  const navigate = useNavigate();
+  const {register} = useApiRequest
 
   return (
     <Container maxWidth="sm">
@@ -49,6 +52,24 @@ const Register = () => {
           >
             Register
           </Typography>
+
+          <Formik initialValues={{
+            username: "",
+            firstName: "",
+            lastName: "",
+            email: "",
+            password: ""
+          }}
+          validationSchema={registerSchema}
+          onSubmit={(values, actions)=>{
+            register(values)
+            actions.resetForm()
+            actions.setSubmitting()
+          }}
+          component={(props)=> <RegisterForm {...props}/>}
+          >
+
+          </Formik>
 
           <Box
             component="form"
