@@ -65,9 +65,12 @@ const Login = () => {
           <Formik
             initialValues={{ email: "", password: "" }}
             validationSchema={loginSchema}
-            onSubmit={(values, actions) => {}}
+            onSubmit={(values, actions) => {
+              actions.resetForm()
+              actions.setSubmitting(false)
+            }}
           >
-            {({ values, handleChange, handleBlur, touched, errors }) => (
+            {({ values, handleChange, handleBlur, touched, errors, isSubmitting }) => (
               <Form>
                 <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
                   <TextField
@@ -94,7 +97,7 @@ const Login = () => {
                     error={touched.password && Boolean(errors.password)}
                     helperText={touched.password && errors.password}
                   />
-                  <Button variant="contained" type="submit">
+                  <Button variant="contained" type="submit" disabled={isSubmitting}>
                     Submit
                   </Button>
                 </Box>
