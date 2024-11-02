@@ -12,7 +12,7 @@ import { useSelector } from "react-redux";
 function Dashboard() {
   const { user } = useSelector((state) => state.auth)
   const { logout } = useApiRequest();
-  // const currentUser = true;
+ 
 
   return (
     <Box sx={{ display: "flex" }}>

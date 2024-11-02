@@ -16,8 +16,9 @@ const useApiRequest = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { token } = useSelector((state) => state.auth)
+  
   const login = async (userData) => {
-    // const BASE_URL = "https://19229.fullstack.clarusway.com";
+    
 
     dispatch(fetchStart());
     try {
