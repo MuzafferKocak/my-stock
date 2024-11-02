@@ -10,16 +10,13 @@ import {
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
-
 //? Custom Hook
 const useApiRequest = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { token } = useSelector((state) => state.auth)
-  
-  const login = async (userData) => {
-    
+  const { token } = useSelector((state) => state.auth);
 
+  const login = async (userData) => {
     dispatch(fetchStart());
     try {
       const data = await axios.post(
@@ -54,7 +51,7 @@ const useApiRequest = () => {
       await axios(`${process.env.REACT_APP_BASE_URL}/auth/logout`, {
         headers: { Authorization: `Token ${token}` },
       });
-      dispatch(logoutSuccess())
+      dispatch(logoutSuccess());
     } catch (error) {
       dispatch(fetchFail());
     }
