@@ -3,13 +3,15 @@ import useStockRequest from "../services/useStockRequest";
 import { useSelector } from "react-redux";
 
 const Firms = () => {
-  const { getFirms,getSales } = useStockRequest();
+  const { getFirms,getSales, getStock } = useStockRequest();
 
   const { firms } = useSelector((state) => state.stock);
 
   useEffect(() => {
-    getFirms();
-    getSales()
+    // getFirms();
+    // getSales()
+    getStock("firms")
+    getStock("sales")
   }, []);
   console.log(firms);
 
