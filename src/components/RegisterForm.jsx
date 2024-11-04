@@ -86,7 +86,7 @@ const RegisterForm = ({
           helperText={touched.email && errors.email}
         />
         <TextField
-          label="Password"
+          label="password"
           name="password"
           id="password"
           type="password"

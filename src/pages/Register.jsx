@@ -11,7 +11,7 @@ import { Formik } from "formik";
 import RegisterForm, { registerSchema } from "../components/RegisterForm";
 
 const Register = () => {
-  const { register } = useApiRequest;
+  const { register } = useApiRequest();
 
   return (
     <Container maxWidth="sm">
