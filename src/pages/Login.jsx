@@ -14,7 +14,7 @@ import { object, string } from "yup";
 import useApiRequest from "../services/useApiRequest";
 
 const Login = () => {
-  const {login} = useApiRequest()
+  const { login } = useApiRequest();
   const loginSchema = object({
     email: string()
       .email("geben Sie ein Gültiges E-mail")
@@ -69,13 +69,19 @@ const Login = () => {
             initialValues={{ email: "", password: "" }}
             validationSchema={loginSchema}
             onSubmit={(values, actions) => {
-              login(values)
-              actions.resetForm()
-              actions.setSubmitting(false)
-
+              login(values);
+              actions.resetForm();
+              actions.setSubmitting(false);
             }}
           >
-            {({ values, handleChange, handleBlur, touched, errors, isSubmitting }) => (
+            {({
+              values,
+              handleChange,
+              handleBlur,
+              touched,
+              errors,
+              isSubmitting,
+            }) => (
               <Form>
                 <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
                   <TextField
@@ -102,7 +108,11 @@ const Login = () => {
                     error={touched.password && Boolean(errors.password)}
                     helperText={touched.password && errors.password}
                   />
-                  <Button variant="contained" type="submit" disabled={isSubmitting}>
+                  <Button
+                    variant="contained"
+                    type="submit"
+                    disabled={isSubmitting}
+                  >
                     Submit
                   </Button>
                 </Box>

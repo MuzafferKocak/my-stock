@@ -24,7 +24,7 @@ const useApiRequest = () => {
       //   `${process.env.REACT_APP_BASE_URL}/auth/login`,
       //   userData
       // );
-      const data = await axiosPublic.post("/auth/login/", userData);
+      const {data} = await axiosPublic.post("/auth/login/", userData);
       dispatch(loginSuccess(data));
       toastSuccessNotify("");
       navigate("/stock");
