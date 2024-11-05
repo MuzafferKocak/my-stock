@@ -5,31 +5,8 @@ const useStockRequest = () => {
   const { axiosToken } = useAxios();
   const dispatch = useDispatch();
 
-  // const getFirms = async () => {
-  //   dispatch(fetchStart())
-  //   try {
-  //     const {data} = await axiosToken("/firms");
-
-  //     dispatch(getFirmsSuccess(data.data))
-  //   } catch (error) {
-  //     dispatch(fetchFail())
-  //     console.log(error);
-  //   }
-  // };
-  // const getSales = async () => {
-  //   dispatch(fetchStart())
-  //   try {
-  //     const {data} = await axiosToken("/sales");
-
-  //     dispatch(getSalesSuccess(data.data))
-  //   } catch (error) {
-  //     dispatch(fetchFail())
-  //     console.log(error);
-  //   }
-  // };
-
   //?Global
-  const getStock = async (path) => {
+  const getStock = async (path = "firms") => {
     dispatch(fetchStart());
     try {
       const { data } = await axiosToken(`/${path}`);
@@ -41,7 +18,18 @@ const useStockRequest = () => {
       console.log(error);
     }
   };
-  return { getStock };
+  const deleteStock = async (path = "firms", id) => {
+    dispatch(fetchStart());
+    try {
+      await axiosToken.delete(`/${path}/${id}`);
+
+      getStock(path);
+    } catch (error) {
+      dispatch(fetchFail());
+      console.log(error);
+    }
+  };
+  return { getStock, deleteStock };
 };
 
 export default useStockRequest;

@@ -24,9 +24,9 @@ const Login = () => {
       .min(8, "Passwort muss min. 8 zeichen lang sein")
       .max(16, "Paswort muss max. 16 zeichen lang sein")
       .matches(/\d+/, "Passwort muss ein Zahl haben")
-      .matches(/[a-z]/, "Passwort muss ein klein buchstaben haben")
-      .matches(/[A-Z]/, "Passwort muss ein gross buchstaben haben")
-      .matches(/[@$!%*?&]/, "Passwort muss ein Sonderzeichen(@$!%*?&) haben"),
+      .matches(/[a-z]+/, "Passwort muss ein klein buchstaben haben")
+      .matches(/[A-Z]+/, "Passwort muss ein gross buchstaben haben")
+      .matches(/[@$!%*?&]+/, "Passwort muss ein Sonderzeichen(@$!%*?&) haben"),
   });
 
   return (
