@@ -13,7 +13,7 @@ const Firms = () => {
   useEffect(() => {
     getStock("firms");
     getStock("sales");
-  }, []);
+  }, []);// eslint-disable-line
 
   return (
     <div>
