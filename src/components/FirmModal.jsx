@@ -24,6 +24,7 @@ export default function FirmModal({ open, handleClose }) {
   }, [open]);
 
   const { postStock } = useStockRequest();
+
   const handleChange = (e) => {
     setInfo({ ...info, [e.target.name]: e.target.value });
   };
@@ -32,67 +33,68 @@ export default function FirmModal({ open, handleClose }) {
     postStock("firms", info);
     handleClose();
   };
-  //   console.log(info);
+//   console.log(info);
 
   return (
-    <Modal
-      open={open}
-      onClose={handleClose}
-      aria-labelledby="modal-modal-title"
-      aria-describedby="modal-modal-description"
-    >
-      <Box sx={modalStyle}>
-        <Box
-          sx={{ display: "flex", flexDirection: "column", gap: 2 }}
-          component={"form"}
-          onSubmit={handleSubmit}
-        >
-          <TextField
-            label="Firm Name"
-            name="name"
-            id="name"
-            type="text"
-            value={info.name}
-            onChange={handleChange}
-            variant="outlined"
-            required
-          />
-          <TextField
-            label="Phone"
-            name="phone"
-            id="phone"
-            type="tel"
-            value={info.phone}
-            onChange={handleChange}
-            variant="outlined"
-            required
-          />
-          <TextField
-            label="Address"
-            name="address"
-            id="address"
-            type="text"
-            value={info.address}
-            onChange={handleChange}
-            variant="outlined"
-            required
-          />
-          <TextField
-            label="Image Url"
-            name="image"
-            id="image"
-            type="url"
-            value={info.image}
-            onChange={handleChange}
-            variant="outlined"
-            required
-          />
+    <div>
+      <Modal
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+      >
+        <Box sx={modalStyle}>
+          <Box
+            sx={{ display: "flex", flexDirection: "column", gap: 2 }}
+            component={"form"}
+            onSubmit={handleSubmit}
+          >
+            <TextField
+              label="Firm Name"
+              name="name"
+              id="name"
+              type="text"
+              value={info.name}
+              onChange={handleChange}
+              variant="outlined"
+              required
+            />
+            <TextField
+              label="Phone"
+              name="phone"
+              id="phone"
+              type="tel"
+              value={info.phone}
+              onChange={handleChange}
+              variant="outlined"
+              required
+            />
+            <TextField
+              label="Address"
+              name="address"
+              id="address"
+              type="text"
+              value={info.address}
+              onChange={handleChange}
+              variant="outlined"
+              required
+            />
+            <TextField
+              label="Image Url"
+              name="image"
+              id="image"
+              type="url"
+              value={info.image}
+              onChange={handleChange}
+              variant="outlined"
+              required
+            />
+            <Button type="submit" variant="contained" size="large">
+              ADD FIRM
+            </Button>
+          </Box>
         </Box>
-
-        <Button type="submit" variant="contained" size="large" sx={{ mt: 2 }}>
-          ADD FIRM
-        </Button>
-      </Box>
-    </Modal>
+      </Modal>
+    </div>
   );
 }

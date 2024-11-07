@@ -9,7 +9,7 @@ import EditIcon from "@mui/icons-material/Edit";
 import { btnStyle } from "../styles/globalStyles";
 import useStockRequest from "../services/useStockRequest";
 
-export default function FirmCard({ firm }) {
+export default function FirmCard({ firm, handleOpen }) {
   const { address, _id, name, phone, image } = firm;
   const { deleteStock } = useStockRequest();
 
@@ -48,7 +48,7 @@ export default function FirmCard({ firm }) {
           sx={btnStyle}
           onClick={() => deleteStock("firms", firm._id)}
         />
-        <EditIcon sx={btnStyle} />
+        <EditIcon sx={btnStyle} onClick={handleOpen} />
       </CardActions>
     </Card>
   );
