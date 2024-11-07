@@ -29,7 +29,7 @@ export default function BrandCard({ brand }) {
         component="img"
         sx={{ p: 1, objectFit: "contain", height: "250px" }}
         image={brand.image}
-        alt={""}
+        alt={brand.name}
       />
       <CardActions>
         <DeleteOutlineIcon

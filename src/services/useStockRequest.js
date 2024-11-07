@@ -29,7 +29,21 @@ const useStockRequest = () => {
       console.log(error);
     }
   };
-  return { getStock, deleteStock };
+  const postStock = async (path = "firms", info) => {
+    dispatch(fetchStart());
+    try {
+      await axiosToken.post(`/${path}/`, info);
+
+      getStock(path);
+    } catch (error) {
+      dispatch(fetchFail());
+      console.log(error);
+    }
+  };
+
+  
+
+  return { getStock, deleteStock, postStock };
 };
 
 export default useStockRequest;
