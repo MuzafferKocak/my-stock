@@ -6,22 +6,9 @@ import { modalStyle } from "../styles/globalStyles";
 import { useEffect, useState } from "react";
 import useStockRequest from "../services/useStockRequest";
 
-export default function FirmModal({ open, handleClose }) {
-  const [info, setInfo] = useState({
-    name: "",
-    phone: "",
-    image: "",
-    address: "",
-  });
+export default function FirmModal({ open, handleClose, info, setInfo }) {
+  
 
-  useEffect(() => {
-    setInfo({
-      name: "",
-      phone: "",
-      image: "",
-      address: "",
-    });
-  }, [open]);
 
   const { postStock } = useStockRequest();
 

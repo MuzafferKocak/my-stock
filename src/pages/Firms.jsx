@@ -11,11 +11,29 @@ const Firms = () => {
   const { firms } = useSelector((state) => state.stock);
   const [open,setOpen]= useState()
   const handleOpen = () => setOpen(true)
-  const handleClose = () => setOpen(false)
+
+
+  const [info, setInfo] = useState({
+    name: "",
+    phone: "",
+    image: "",
+    address: "",
+  });
+
+  const handleClose = () => {
+    setOpen(false)
+    setInfo({
+      name: "",
+      phone: "",
+      image: "",
+      address: "",
+    })
+  } 
+  
 
   useEffect(() => {
     getStock("firms");
-    getStock("sales");
+    // getStock("sales");
   }, []); // eslint-disable-line
 
   return (
@@ -25,12 +43,12 @@ const Firms = () => {
       </Typography>
       <Button variant="contained" onClick={handleOpen}>New Firm</Button>
 
-      <FirmModal open={open} handleClose={handleClose} />
+      <FirmModal open={open} handleClose={handleClose} info={info} setInfo={setInfo} />
 
       <Grid container spacing={2} mt={3} justifyContent={"center"}>
         {firms.map((firm) => (
           <Grid item key={firm._id} xs={12} sm={6} md={4}>
-            <FirmCard firm={firm} handleOpen={handleOpen} />
+            <FirmCard firm={firm} handleOpen={handleOpen} setInfo={setInfo} />
           </Grid>
         ))}
       </Grid>
