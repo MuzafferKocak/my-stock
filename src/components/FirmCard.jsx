@@ -52,7 +52,7 @@ export default function FirmCard({ firm, handleOpen, setInfo }) {
           sx={btnStyle}
           onClick={() => {
             handleOpen();
-            setInfo(firm)
+            setInfo(firm);
           }}
         />
       </CardActions>

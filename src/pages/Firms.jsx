@@ -9,9 +9,8 @@ import FirmModal from "../components/FirmModal";
 const Firms = () => {
   const { getStock } = useStockRequest();
   const { firms } = useSelector((state) => state.stock);
-  const [open,setOpen]= useState()
-  const handleOpen = () => setOpen(true)
-
+  const [open, setOpen] = useState();
+  const handleOpen = () => setOpen(true);
 
   const [info, setInfo] = useState({
     name: "",
@@ -21,15 +20,14 @@ const Firms = () => {
   });
 
   const handleClose = () => {
-    setOpen(false)
+    setOpen(false);
     setInfo({
       name: "",
       phone: "",
       image: "",
       address: "",
-    })
-  } 
-  
+    });
+  };
 
   useEffect(() => {
     getStock("firms");
@@ -41,9 +39,16 @@ const Firms = () => {
       <Typography variant="h4" color={"error"} component="div" mb={2}>
         Firms
       </Typography>
-      <Button variant="contained" onClick={handleOpen}>New Firm</Button>
+      <Button variant="contained" onClick={handleOpen}>
+        New Firm
+      </Button>
 
-      <FirmModal open={open} handleClose={handleClose} info={info} setInfo={setInfo} />
+      <FirmModal
+        open={open}
+        handleClose={handleClose}
+        info={info}
+        setInfo={setInfo}
+      />
 
       <Grid container spacing={2} mt={3} justifyContent={"center"}>
         {firms.map((firm) => (
