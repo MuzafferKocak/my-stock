@@ -7,49 +7,48 @@ import {
 } from "@mui/x-data-grid";
 import GridDeleteForeverIcon from "@mui/icons-material/DeleteForever"
 import useStockRequest from "../services/useStockRequest";
+import { useSelector } from "react-redux";
 
-const rows = [
-  { id: 1, lastName: "Snow", firstName: "Jon", age: 14 },
-  { id: 2, lastName: "Lannister", firstName: "Cersei", age: 31 },
-  { id: 3, lastName: "Lannister", firstName: "Jaime", age: 31 },
-  { id: 4, lastName: "Stark", firstName: "Arya", age: 11 },
-  { id: 5, lastName: "Targaryen", firstName: "Daenerys", age: null },
-  { id: 6, lastName: "Melisandre", firstName: null, age: 150 },
-  { id: 7, lastName: "Clifford", firstName: "Ferrara", age: 44 },
-  { id: 8, lastName: "Frances", firstName: "Rossini", age: 36 },
-  { id: 9, lastName: "Roxie", firstName: "Harvey", age: 65 },
-];
+
 
 export default function ProductTable() {
   const { deleteStock } = useStockRequest();
-
+  const {products} = useSelector((state)=>state.stock)
+  const getRowId = (row)=> row._id
   const columns = [
     { field: "_id", headerName: "#", width: 90 },
     {
-      field: "categories",
+      field: "categoriesId",
       headerName: "Categories",
-      width: 150,
-      editable: true,
+      flex: 1,
+      minWidth: 100,
+      valueGetter: (value)=> value?.name,
     },
     {
-      field: "brand",
-      headerName: "Brand",
+      field: "brandId",
+      headerName: "Brands",
+      headerAlign: "center",
+      align: "center",
       width: 150,
-      editable: true,
+      flex: 1.2,
+      valueGetter: (value)=> value?.name,
     },
     {
       field: "name",
       headerName: "Name",
-      type: "number",
-      width: 110,
-      editable: true,
+      headerAlign: "center",
+      align: "center",
+      flex: 1.1,
+      miWidth: 110,
     },
     {
-      field: "stock",
+      field: "quantity",
       headerName: "Stock",
       type: "number",
-      width: 110,
-      editable: true,
+      sortable: true,
+      headerAlign: "center",
+      align: "center",
+      width: 160,
     },
     {
       field: "actions",
@@ -67,9 +66,9 @@ export default function ProductTable() {
 
 
   return (
-    <Box sx={{ height: 400, width: "100%" }}>
+    <Box sx={{ width: "100%", mt:3 }}>
       <DataGrid
-        rows={rows}
+        rows={products}
         columns={columns}
         initialState={{
           pagination: {
@@ -81,6 +80,7 @@ export default function ProductTable() {
         pageSizeOptions={[5]}
         checkboxSelection
         disableRowSelectionOnClick
+        getRowId={getRowId}
       />
     </Box>
   );
