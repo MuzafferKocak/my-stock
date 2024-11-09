@@ -1,28 +1,23 @@
 import * as React from "react";
 import Box from "@mui/material/Box";
-import {
-  DataGrid,
-  GridActionsCellItem,
-  
-} from "@mui/x-data-grid";
-import GridDeleteForeverIcon from "@mui/icons-material/DeleteForever"
+import { DataGrid, GridActionsCellItem, GridToolbar } from "@mui/x-data-grid";
+import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 import useStockRequest from "../services/useStockRequest";
 import { useSelector } from "react-redux";
 
-
-
 export default function ProductTable() {
   const { deleteStock } = useStockRequest();
-  const {products} = useSelector((state)=>state.stock)
-  const getRowId = (row)=> row._id
+  const { products } = useSelector((state) => state.stock);
+  const getRowId = (row) => row._id;
   const columns = [
-    { field: "_id", headerName: "#", width: 90 },
+    { field: "_id", headerName: "#", minWidth: 150, flex: 1.4 },
     {
       field: "categoriesId",
       headerName: "Categories",
       flex: 1,
       minWidth: 100,
-      valueGetter: (value)=> value?.name,
+
+      valueGetter: (value, row) => row.categoryId?.name,
     },
     {
       field: "brandId",
@@ -31,7 +26,7 @@ export default function ProductTable() {
       align: "center",
       width: 150,
       flex: 1.2,
-      valueGetter: (value)=> value?.name,
+      valueGetter: (value, row) => row.brandId?.name,
     },
     {
       field: "name",
@@ -54,19 +49,20 @@ export default function ProductTable() {
       field: "actions",
       type: "actions",
       headerName: "Actions",
-      getActions: (props) => [
-        <GridActionsCellItem
-          icon={<GridDeleteForeverIcon />}
-          onclick={() => deleteStock("products", props.id)}
-          label="Delete"
-        />,
-      ],
+      getActions: (props) => {
+        return [
+          <GridActionsCellItem
+            icon={<DeleteForeverIcon />}
+            onClick={() => deleteStock("products", props.id)}
+            label="Delete"
+          />,
+        ];
+      },
     },
   ];
 
-
   return (
-    <Box sx={{ width: "100%", mt:3 }}>
+    <Box sx={{ width: "100%", mt: 3 }}>
       <DataGrid
         rows={products}
         columns={columns}
@@ -77,10 +73,11 @@ export default function ProductTable() {
             },
           },
         }}
-        pageSizeOptions={[5]}
+        pageSizeOptions={[5, 10, 25, 50, 75]}
         checkboxSelection
         disableRowSelectionOnClick
         getRowId={getRowId}
+        slots={{ toolbar: GridToolbar }}
       />
     </Box>
   );

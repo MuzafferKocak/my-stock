@@ -1,4 +1,4 @@
-import { fetchFail, fetchStart, getStockSuccess } from "../features/stockSlice";
+import { fetchFail, fetchStart, getStockSuccess, getStockDataSuccess } from "../features/stockSlice";
 import useAxios from "./useAxios";
 import { useDispatch } from "react-redux";
 const useStockRequest = () => {
@@ -53,7 +53,41 @@ const useStockRequest = () => {
     }
   };
 
-  return { getStock, deleteStock, postStock, putStock };
+  const getStockData = async () => {
+    try {
+      
+      const [pro, pur, bra, fir, cat] = await Promise.all([
+        axiosToken("/products"),
+        axiosToken("/purchases"),
+        axiosToken("/brands"),
+        axiosToken("/firms"),
+        axiosToken("/categories"),
+      ]);
+  
+      const products = pro?.data?.data;
+      const purchases = pur?.data?.data;
+      const brands = bra?.data?.data;
+      const firms = fir?.data?.data;
+      const categories = cat?.data?.data;
+  
+      console.log("Fetched Data:", { products, purchases, brands, firms, categories });
+  
+      
+      dispatch(getStockDataSuccess({ 
+        products, 
+        purchases, 
+        brands, 
+        firms, 
+        categories 
+      }));
+  
+    } catch (error) {
+      console.log("Error fetching data:", error);
+      dispatch(fetchFail());
+    }
+  };
+
+  return { getStock, deleteStock, postStock, putStock, getStockData };
 };
 
 export default useStockRequest;
