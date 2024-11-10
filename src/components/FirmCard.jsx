@@ -24,6 +24,7 @@ export default function FirmCard({ firm, handleOpen, setInfo }) {
         width: "350px",
         height: "450px",
         p: 2,
+        mt:1
       }}
     >
       <CardMedia
@@ -46,7 +47,7 @@ export default function FirmCard({ firm, handleOpen, setInfo }) {
       <CardActions>
         <DeleteOutlineIcon
           sx={btnStyle}
-          onClick={() => deleteStock("firms", firm._id)}
+          onClick={() => deleteStock("firms", _id)}
         />
         <EditIcon
           sx={btnStyle}

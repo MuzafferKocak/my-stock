@@ -39,7 +39,7 @@ const Firms = () => {
       <Typography variant="h4" color={"error"} component="div" mb={2}>
         Firms
       </Typography>
-      <Button variant="contained" onClick={handleOpen}>
+      <Button variant="contained" onClick={handleOpen} sx={{ mb: 1 }}>
         New Firm
       </Button>
 

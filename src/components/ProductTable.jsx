@@ -62,7 +62,7 @@ export default function ProductTable() {
   ];
 
   return (
-    <Box sx={{ width: "100%", mt: 3 }}>
+    <Box sx={{ width: "100%", mt: 1 }}>
       <DataGrid
         rows={products}
         columns={columns}

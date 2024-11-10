@@ -11,7 +11,6 @@ import { useSelector } from "react-redux";
 export default function ProductModal({ open, handleClose, info, setInfo }) {
   const { postStock } = useStockRequest();
   const { categories, brands } = useSelector((state) => state.stock);
-  
 
   const handleChange = (e) => {
     setInfo({ ...info, [e.target.name]: e.target.value });
