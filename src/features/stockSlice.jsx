@@ -34,14 +34,14 @@ const stockSlice = createSlice({
 
     getStockDataSuccess: (
       state,
-      { payload: { products, purchases, firms, brands, categories } }
+      { payload: { products, purchases, firms, brands } }
     ) => {
       state.loading = false;
       state.products = products;
       state.purchases = purchases;
       state.brands = brands;
       state.firms = firms;
-      state.categories = categories;
+      
     },
     fetchFail: (state) => {
       state.loading = false;
