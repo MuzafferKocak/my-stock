@@ -43,7 +43,7 @@ const Charts = () => {
     >
       <Box
         sx={{
-          width: "49%",
+          width: { xs: "100%", md: "49%" },
           bgcolor: "#E9EBF8",
           border: 2,
           borderRadius: "10px",
@@ -53,7 +53,12 @@ const Charts = () => {
         <Typography
           variant="h6"
           component="p"
-          sx={{ fontWeight: "bold", color: "#502F4C", p: 1 }}
+          sx={{
+            fontWeight: "bold",
+            color: "#502F4C",
+            textAlign: "center",
+            p: 1,
+          }}
         >
           Total Sales (€)
         </Typography>
@@ -64,7 +69,7 @@ const Charts = () => {
               dataKey="Date"
               label={{ value: "", position: "insideBottomRight" }}
             />
-            <YAxis label={{ value: "", angle: -90, position: "insideLeft" }} />
+            <YAxis tickFormatter={(value) => `€${value}`} />
             <Tooltip formatter={(value) => dataFormatter(value)} />
             <Legend />
             <Line
@@ -79,7 +84,7 @@ const Charts = () => {
 
       <Box
         sx={{
-          width: "49%",
+          width: { xs: "100%", md: "49%" },
           bgcolor: "#E9EBF8",
           border: 2,
           borderRadius: "10px",
@@ -89,7 +94,12 @@ const Charts = () => {
         <Typography
           variant="h6"
           component="p"
-          sx={{ fontWeight: "bold", color: "#7D1538", p: 1 }}
+          sx={{
+            fontWeight: "bold",
+            color: "#7D1538",
+            textAlign: "center",
+            p: 1,
+          }}
         >
           Total Purchases (€)
         </Typography>
@@ -100,9 +110,10 @@ const Charts = () => {
               dataKey="Date"
               label={{ value: "", position: "insideBottomRight" }}
             />
-            <YAxis label={{ value: "", angle: -90, position: "insideLeft" }} />
+            <YAxis tickFormatter={(value) => `€${value}`} />
             <Tooltip formatter={(value) => dataFormatter(value)} />
             <Legend />
+
             <Line
               type="monotone"
               dataKey="Amount"

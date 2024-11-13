@@ -6,8 +6,8 @@ import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 import EditIcon from "@mui/icons-material/Edit";
-import { btnStyle } from "../styles/globalStyles";
-import useStockRequest from "../services/useStockRequest";
+import { btnStyle } from "../../styles/globalStyles";
+import useStockRequest from "../../services/useStockRequest";
 
 export default function FirmCard({ firm, handleOpen, setInfo }) {
   const { address, _id, name, phone, image } = firm;

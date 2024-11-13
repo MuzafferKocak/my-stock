@@ -2,7 +2,7 @@ import * as React from "react";
 import Box from "@mui/material/Box";
 import { DataGrid, GridActionsCellItem, GridToolbar } from "@mui/x-data-grid";
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
-import useStockRequest from "../services/useStockRequest";
+import useStockRequest from "../../services/useStockRequest";
 import { useSelector } from "react-redux";
 
 export default function ProductTable() {

@@ -3,8 +3,8 @@ import useStockRequest from "../services/useStockRequest";
 import { useSelector } from "react-redux";
 import { Button, Typography } from "@mui/material";
 import Grid from "@mui/material/Grid2";
-import FirmCard from "../components/FirmCard";
-import FirmModal from "../components/FirmModal";
+import FirmCard from "../components/firms/FirmCard";
+import FirmModal from "../components/firms/FirmModal";
 
 const Firms = () => {
   const { getStock } = useStockRequest();

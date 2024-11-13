@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import useStockRequest from "../services/useStockRequest";
 import { Button, Typography } from "@mui/material";
-import ProductTable from "../components/ProductTable";
-import ProductModal from "../components/ProductModal";
+import ProductTable from "../components/products/ProductTable";
+import ProductModal from "../components/products/ProductModal";
 import { useSelector } from "react-redux";
 import { ErrorMessage } from "../components/DataFetchMessages";
 

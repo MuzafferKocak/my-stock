@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
-import KPICards from "../components/KPICards";
-import Charts from "../components/Charts";
+import KPICards from "../components/home/KPICards";
+import Charts from "../components/home/Charts";
 import useStockRequest from "../services/useStockRequest";
 
 

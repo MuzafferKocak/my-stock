@@ -2,9 +2,9 @@ import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
 import Button from "@mui/material/Button";
 import { TextField } from "@mui/material";
-import { modalStyle } from "../styles/globalStyles";
+import { modalStyle } from "../../styles/globalStyles";
 import { useEffect, useState } from "react";
-import useStockRequest from "../services/useStockRequest";
+import useStockRequest from "../../services/useStockRequest";
 
 export default function FirmModal({ open, handleClose, info, setInfo }) {
   const { postStock, putStock } = useStockRequest();

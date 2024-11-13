@@ -3,8 +3,8 @@ import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
 import Button from "@mui/material/Button";
 import { TextField } from "@mui/material";
-import { modalStyle } from "../styles/globalStyles";
-import useStockRequest from "../services/useStockRequest";
+import { modalStyle } from "../../styles/globalStyles";
+import useStockRequest from "../../services/useStockRequest";
 
 export default function BrandModal({ open, handleClose, info, setInfo }) {
   const { postStock } = useStockRequest();

@@ -3,8 +3,8 @@ import Modal from "@mui/material/Modal";
 import Button from "@mui/material/Button";
 import InputLabel from "@mui/material/InputLabel";
 import { FormControl, MenuItem, Select, TextField } from "@mui/material";
-import { modalStyle } from "../styles/globalStyles";
-import useStockRequest from "../services/useStockRequest";
+import { modalStyle } from "../../styles/globalStyles";
+import useStockRequest from "../../services/useStockRequest";
 
 import { useSelector } from "react-redux";
 

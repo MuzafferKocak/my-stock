@@ -4,8 +4,8 @@ import CardActions from "@mui/material/CardActions";
 import CardMedia from "@mui/material/CardMedia";
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 import EditIcon from "@mui/icons-material/Edit";
-import { btnStyle } from "../styles/globalStyles";
-import useStockRequest from "../services/useStockRequest";
+import { btnStyle } from "../../styles/globalStyles";
+import useStockRequest from "../../services/useStockRequest";
 import { CardHeader } from "@mui/material";
 
 export default function BrandCard({ brand }) {

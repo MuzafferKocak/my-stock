@@ -1,10 +1,10 @@
 import { Box, Button, Typography } from "@mui/material";
 import Grid from "@mui/material/Grid2";
-import BrandCard from "../components/BrandCard";
+import BrandCard from "../components/brand/BrandCard";
 import { useEffect, useState } from "react";
 import useStockRequest from "../services/useStockRequest";
 import { useSelector } from "react-redux";
-import BrandModal from "../components/BrandModal";
+import BrandModal from "../components/brand/BrandModal";
 
 const Brands = () => {
   const { getStock } = useStockRequest();
