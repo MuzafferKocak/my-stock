@@ -30,7 +30,7 @@ const Products = () => {
 
   useEffect(() => {
     getStock("products");
-    getStock("categories");
+    getStock("purchases");
     getStock("brands");
     getStock("firms");
   }, []); // eslint-disable-line

@@ -8,7 +8,7 @@ import BrandModal from "../components/brand/BrandModal";
 
 const Brands = () => {
   const { getStock } = useStockRequest();
-  const { brands, loading, error } = useSelector((state) => state.stock);
+  const { brands, error } = useSelector((state) => state.stock);
 
   const [info, setInfo] = useState({ name: "", image: "" });
   const [open, setOpen] = useState(false);

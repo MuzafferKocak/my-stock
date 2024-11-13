@@ -3,7 +3,6 @@ import Modal from "@mui/material/Modal";
 import Button from "@mui/material/Button";
 import { TextField } from "@mui/material";
 import { modalStyle } from "../../styles/globalStyles";
-import { useEffect, useState } from "react";
 import useStockRequest from "../../services/useStockRequest";
 
 export default function FirmModal({ open, handleClose, info, setInfo }) {
