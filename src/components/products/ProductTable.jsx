@@ -4,6 +4,7 @@ import { DataGrid, GridActionsCellItem, GridToolbar } from "@mui/x-data-grid";
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 import useStockRequest from "../../services/useStockRequest";
 import { useSelector } from "react-redux";
+import { btnStyle } from "../../styles/globalStyles";
 
 export default function ProductTable() {
   const { deleteStock } = useStockRequest();
@@ -55,6 +56,7 @@ export default function ProductTable() {
             icon={<DeleteForeverIcon />}
             onClick={() => deleteStock("products", props.id)}
             label="Delete"
+            sx={btnStyle}
           />,
         ];
       },

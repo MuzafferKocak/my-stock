@@ -5,24 +5,34 @@ import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 import EditIcon from "@mui/icons-material/Edit";
 import useStockRequest from "../../services/useStockRequest";
 import { useSelector } from "react-redux";
+import { btnStyle } from "../../styles/globalStyles";
 
-export default function PurchasesTable({handleOpen, setInfo}) {
+export default function PurchasesTable({ handleOpen, setInfo }) {
   const { deleteStock } = useStockRequest();
   const { purchases } = useSelector((state) => state.stock);
 
   const getRowId = (row) => row._id;
 
-//   console.log(purchases);
+  //   console.log(purchases);
 
   const columns = [
-    { field: "createdAt", headerName: "Date", minWidth: 160, headerAlign: "center", align: "center", renderCell:({row})=>{return new Date(row.createdAt).toLocaleString("de-DE")} },
+    {
+      field: "createdAt",
+      headerName: "Date",
+      minWidth: 160,
+      headerAlign: "center",
+      align: "center",
+      renderCell: ({ row }) => {
+        return new Date(row.createdAt).toLocaleString("de-DE");
+      },
+    },
     {
       field: "firmId",
       headerName: "Firm",
       flex: 1,
       minWidth: 100,
 
-      renderCell: ({row}) => row?.firmId?.name,
+      renderCell: ({ row }) => row?.firmId?.name,
     },
     {
       field: "brandId",
@@ -31,7 +41,7 @@ export default function PurchasesTable({handleOpen, setInfo}) {
       align: "center",
       minWidth: 100,
       flex: 1.1,
-      renderCell: ({row}) => row?.brandId?.name,
+      renderCell: ({ row }) => row?.brandId?.name,
     },
     {
       field: "productId",
@@ -40,7 +50,7 @@ export default function PurchasesTable({handleOpen, setInfo}) {
       align: "center",
       flex: 1.1,
       minWidth: 100,
-      renderCell: ({row}) => row?.productId?.name,
+      renderCell: ({ row }) => row?.productId?.name,
     },
     {
       field: "quantity",
@@ -73,25 +83,35 @@ export default function PurchasesTable({handleOpen, setInfo}) {
       field: "actions",
       type: "actions",
       headerName: "Actions",
-      minWidth:45,
-      headerAlign:"center",
+      minWidth: 45,
+      headerAlign: "center",
       align: "center",
-      renderCell: ({row: {firmId,brandId, productId, quantity,price, _id},}) => {
-        
+      renderCell: ({
+        row: { firmId, brandId, productId, quantity, price, _id },
+      }) => {
         return [
-            <GridActionsCellItem 
-                key={"edit"}
-                icon={<EditIcon/>}
-                label="Edit"
-                onClick={()=>{
-                    handleOpen()
-                    setInfo({firmId, brandId, productId, quantity, price, _id})
-                }}
-            />,
+          <GridActionsCellItem
+            key={"edit"}
+            icon={<EditIcon />}
+            label="Edit"
+            sx={btnStyle}
+            onClick={() => {
+              handleOpen();
+              setInfo({
+                firmId: firmId ? firmId._id : "",
+                brandId: brandId ? brandId._id : "",
+                productId: productId ? productId._id : "",
+                quantity,
+                price,
+                _id,
+              });
+            }}
+          />,
           <GridActionsCellItem
             icon={<DeleteForeverIcon />}
             onClick={() => deleteStock("purchases", _id)}
             label="Delete"
+            sx={btnStyle}
           />,
         ];
       },

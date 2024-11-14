@@ -36,13 +36,15 @@ export default function PurchasesModal({ open, handleClose, info, setInfo }) {
             onSubmit={handleSubmit}
           >
             <FormControl fullWidth>
-              <InputLabel variant="outlined" id="firm">Firm</InputLabel>
+              <InputLabel variant="outlined" id="firmId">
+                Firm
+              </InputLabel>
               <Select
-                labelId="firm"
-                id="firmId"
+                labelId="firm-select-label"
+                id="firm-select"
                 name="firmId"
                 label="Firm"
-                value={info.firmId?._id || info?.firmId}
+                value={info.firmId || ""}
                 onChange={handleChange}
                 required
               >
@@ -54,13 +56,15 @@ export default function PurchasesModal({ open, handleClose, info, setInfo }) {
               </Select>
             </FormControl>
             <FormControl fullWidth>
-              <InputLabel id="brandId">Brands</InputLabel>
+              <InputLabel id="brandId" variant="outlined">
+                Brands
+              </InputLabel>
               <Select
-                labelId="brandId"
-                id="brandId"
+                labelId="brand-select-label"
+                id="brand-select"
                 name="brandId"
-                label="Brands"
-                value={info.brandId || info.brandId}
+                label="Brand"
+                value={info.brandId || ""}
                 onChange={handleChange}
                 required
               >
@@ -72,13 +76,15 @@ export default function PurchasesModal({ open, handleClose, info, setInfo }) {
               </Select>
             </FormControl>
             <FormControl fullWidth>
-              <InputLabel id="productId">Product</InputLabel>
+              <InputLabel id="productId" variant="outlined">
+                Product
+              </InputLabel>
               <Select
-                labelId="productId"
-                id="productId"
+                labelId="product-select-label"
+                id="product-select"
                 name="productId"
                 label="Product"
-                value={info.productId || info.productId}
+                value={info.productId || ""}
                 onChange={handleChange}
                 required
               >
@@ -112,7 +118,7 @@ export default function PurchasesModal({ open, handleClose, info, setInfo }) {
             />
 
             <Button type="submit" variant="contained" size="large">
-              ADD NEW PURCHASES
+              {info?._id ? "UPDATE PURCHASES" : "ADD NEW PURCHASES"}
             </Button>
           </Box>
         </Box>

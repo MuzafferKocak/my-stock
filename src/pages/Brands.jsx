@@ -26,7 +26,7 @@ const Brands = () => {
 
   return (
     <Box>
-      <Typography variant="h4" color="error">
+      <Typography variant="h4" color={"error"} component="div" mb={2}>
         Brands
       </Typography>
       <Button variant="contained" onClick={handleOpen} disabled={error} >New Brands</Button>

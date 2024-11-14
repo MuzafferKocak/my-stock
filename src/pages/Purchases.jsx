@@ -6,7 +6,7 @@ import { ErrorMessage } from "../components/DataFetchMessages";
 import PurchasesTable from "../components/purchases/PurchasesTable";
 import PurchasesModal from "../components/purchases/PurchasesModal";
 
-const Products = () => {
+const Purchases = () => {
   const { getStock } = useStockRequest();
   const { error } = useSelector((state) => state.stock);
 
@@ -38,7 +38,7 @@ const Products = () => {
   return (
     <div>
       <Typography variant="h4" color={"error"} component="div" mb={2}>
-        Product
+        Purchases
       </Typography>
       <Button
         variant="contained"
@@ -60,4 +60,4 @@ const Products = () => {
   );
 };
 
-export default Products;
+export default Purchases;
