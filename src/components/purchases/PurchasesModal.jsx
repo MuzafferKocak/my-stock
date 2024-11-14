@@ -9,7 +9,7 @@ import useStockRequest from "../../services/useStockRequest";
 import { useSelector } from "react-redux";
 
 export default function PurchasesModal({ open, handleClose, info, setInfo }) {
-  const { postStock } = useStockRequest();
+  const { postStock, putStock } = useStockRequest();
   const { firms, brands, products } = useSelector((state) => state.stock);
 
   const handleChange = (e) => {
@@ -17,7 +17,11 @@ export default function PurchasesModal({ open, handleClose, info, setInfo }) {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    postStock("products", info);
+    if (info._id) {
+      putStock("purchases", info);
+    } else {
+      postStock("purchases", info);
+    }
     handleClose();
   };
 

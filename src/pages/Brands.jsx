@@ -34,11 +34,11 @@ const Brands = () => {
       <Grid container spacing={2} mt={3} justifyContent={"center"}>
         {brands.map((brand) => (
           <Grid item key={brand._id} xs={12} sm={6} md={4}>
-            <BrandCard brand={brand} />
+            <BrandCard brand={brand} handleOpen={handleOpen} setInfo={setInfo} />
           </Grid>
         ))}
       </Grid>
-      <BrandModal open={open} handleClose={handleClose} info={info} setInfo={setInfo} />
+      <BrandModal open={open} handleClose={handleClose}  info={info} setInfo={setInfo} />
     </Box>
   );
 };

@@ -7,11 +7,15 @@ import { modalStyle } from "../../styles/globalStyles";
 import useStockRequest from "../../services/useStockRequest";
 
 export default function BrandModal({ open, handleClose, info, setInfo }) {
-  const { postStock } = useStockRequest();
+  const { postStock, putStock } = useStockRequest();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    postStock("brands", info);
+    if (info._id) {
+      putStock("brands", info);
+    } else {
+      postStock("brands", info);
+    }
     handleClose();
   };
   // console.log(info);

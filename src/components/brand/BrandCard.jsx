@@ -8,7 +8,7 @@ import { btnStyle } from "../../styles/globalStyles";
 import useStockRequest from "../../services/useStockRequest";
 import { CardHeader } from "@mui/material";
 
-export default function BrandCard({ brand }) {
+export default function BrandCard({ brand, handleOpen, setInfo }) {
   const { deleteStock } = useStockRequest();
 
   return (
@@ -36,7 +36,11 @@ export default function BrandCard({ brand }) {
           sx={btnStyle}
           onClick={() => deleteStock("brands", brand._id)}
         />
-        <EditIcon sx={btnStyle} />
+        <EditIcon sx={btnStyle} onClick={()=>{
+          handleOpen()
+          setInfo(brand)
+        }} />
+        
       </CardActions>
     </Card>
   );
