@@ -6,6 +6,9 @@ import {
 } from "../features/stockSlice";
 import useAxios from "./useAxios";
 import { useDispatch } from "react-redux";
+import { toastErrorNotify, toastSuccessNotify } from "../helper/ToastNotify"
+
+
 const useStockRequest = () => {
   const { axiosToken } = useAxios();
   const dispatch = useDispatch();
@@ -16,9 +19,10 @@ const useStockRequest = () => {
     try {
       const { data } = await axiosToken(`/${path}`);
       const stockData = data.data;
-
+      
       dispatch(getStockSuccess({ stockData, path }));
     } catch (error) {
+      toastErrorNotify(`${path}`)
       dispatch(fetchFail());
       console.log(error);
     }
@@ -27,9 +31,10 @@ const useStockRequest = () => {
     dispatch(fetchStart());
     try {
       await axiosToken.delete(`/${path}/${id}`);
-
+      toastSuccessNotify(`${path}`)
       getStock(path);
     } catch (error) {
+      toastErrorNotify(`${path}`)
       dispatch(fetchFail());
       console.log(error);
     }
@@ -38,9 +43,10 @@ const useStockRequest = () => {
     dispatch(fetchStart());
     try {
       await axiosToken.post(`/${path}/`, info);
-
+      toastSuccessNotify(`${path}`)
       getStock(path);
     } catch (error) {
+      toastErrorNotify(`${path}`)
       dispatch(fetchFail());
       console.log(error);
     }
@@ -50,14 +56,16 @@ const useStockRequest = () => {
     dispatch(fetchStart());
     try {
       await axiosToken.put(`/${path}/${info._id}`, info);
-
+      toastSuccessNotify(`${path}`)
       getStock(path);
     } catch (error) {
+      toastErrorNotify(`${path}`)
       dispatch(fetchFail());
       console.log(error);
     }
   };
 
+  //? beispiel Promise.All 
   const getStockData = async () => {
     try {
       const [pro, pur, bra, fir] = await Promise.all([
@@ -84,6 +92,7 @@ const useStockRequest = () => {
         })
       );
     } catch (error) {
+      
       console.log(error);
       dispatch(fetchFail());
     }

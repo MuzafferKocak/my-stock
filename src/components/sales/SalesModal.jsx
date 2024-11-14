@@ -6,9 +6,11 @@ import { FormControl, MenuItem, Select, TextField } from "@mui/material";
 import { modalStyle } from "../../styles/globalStyles";
 import useStockRequest from "../../services/useStockRequest";
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 export default function SalesModal({ open, handleClose, info, setInfo }) {
-  const { postStock } = useStockRequest();
+  const navigate = useNavigate();
+  const { postStock, putStock } = useStockRequest();
   const { brands, products } = useSelector((state) => state.stock);
 
   const handleChange = (e) => {
@@ -16,7 +18,11 @@ export default function SalesModal({ open, handleClose, info, setInfo }) {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    postStock("sales", info);
+    if (info._id) {
+      putStock("sales", info);
+    } else {
+      postStock("sales", info);
+    }
     handleClose();
   };
 
@@ -47,6 +53,10 @@ export default function SalesModal({ open, handleClose, info, setInfo }) {
                 onChange={handleChange}
                 required
               >
+                <MenuItem onClick={() => navigate("/stock/brands")}>
+                  Add New Brand
+                </MenuItem>
+                <hr />
                 {brands.map((item) => (
                   <MenuItem key={item._id} value={item._id}>
                     {item.name}
@@ -67,6 +77,10 @@ export default function SalesModal({ open, handleClose, info, setInfo }) {
                 onChange={handleChange}
                 required
               >
+                <MenuItem onClick={() => navigate("/stock/products")}>
+                  Add New Product
+                </MenuItem>
+                <hr />
                 {products.map((item) => (
                   <MenuItem key={item._id} value={item._id}>
                     {item.name}

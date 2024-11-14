@@ -5,10 +5,11 @@ import InputLabel from "@mui/material/InputLabel";
 import { FormControl, MenuItem, Select, TextField } from "@mui/material";
 import { modalStyle } from "../../styles/globalStyles";
 import useStockRequest from "../../services/useStockRequest";
-
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 export default function PurchasesModal({ open, handleClose, info, setInfo }) {
+  const navigate = useNavigate();
   const { postStock, putStock } = useStockRequest();
   const { firms, brands, products } = useSelector((state) => state.stock);
 
@@ -52,6 +53,9 @@ export default function PurchasesModal({ open, handleClose, info, setInfo }) {
                 onChange={handleChange}
                 required
               >
+                <MenuItem onClick={() => navigate("/stock/firms")}>
+                  Add New Firm
+                </MenuItem>
                 {firms.map((item) => (
                   <MenuItem key={item._id} value={item._id}>
                     {item.name}
@@ -72,6 +76,9 @@ export default function PurchasesModal({ open, handleClose, info, setInfo }) {
                 onChange={handleChange}
                 required
               >
+                <MenuItem onClick={() => navigate("/stock/brands")}>
+                  Add New Brand
+                </MenuItem>
                 {brands.map((item) => (
                   <MenuItem key={item._id} value={item._id}>
                     {item.name}
@@ -92,6 +99,9 @@ export default function PurchasesModal({ open, handleClose, info, setInfo }) {
                 onChange={handleChange}
                 required
               >
+                <MenuItem onClick={() => navigate("/stock/products")}>
+                  Add New Product
+                </MenuItem>
                 {products.map((item) => (
                   <MenuItem key={item._id} value={item._id}>
                     {item.name}
