@@ -6,8 +6,7 @@ import {
 } from "../features/stockSlice";
 import useAxios from "./useAxios";
 import { useDispatch } from "react-redux";
-import { toastErrorNotify, toastSuccessNotify } from "../helper/ToastNotify"
-
+import { toastErrorNotify, toastSuccessNotify } from "../helper/ToastNotify";
 
 const useStockRequest = () => {
   const { axiosToken } = useAxios();
@@ -19,10 +18,10 @@ const useStockRequest = () => {
     try {
       const { data } = await axiosToken(`/${path}`);
       const stockData = data.data;
-      
+
       dispatch(getStockSuccess({ stockData, path }));
     } catch (error) {
-      toastErrorNotify(`${path}`)
+      toastErrorNotify(`${path} Daten konnten nicht abgerufen werden.`);
       dispatch(fetchFail());
       console.log(error);
     }
@@ -31,10 +30,10 @@ const useStockRequest = () => {
     dispatch(fetchStart());
     try {
       await axiosToken.delete(`/${path}/${id}`);
-      toastSuccessNotify(`${path}`)
+      toastSuccessNotify(`${path} erfolgreich gelöscht.`);
       getStock(path);
     } catch (error) {
-      toastErrorNotify(`${path}`)
+      toastErrorNotify(`${path} wurde nicht gelöscht.`);
       dispatch(fetchFail());
       console.log(error);
     }
@@ -43,10 +42,10 @@ const useStockRequest = () => {
     dispatch(fetchStart());
     try {
       await axiosToken.post(`/${path}/`, info);
-      toastSuccessNotify(`${path}`)
+      toastSuccessNotify(`${path} erfolgreich hinzugefügt.`);
       getStock(path);
     } catch (error) {
-      toastErrorNotify(`${path}`)
+      toastErrorNotify(`${path} konnte nicht hinzugefügt werden.`);
       dispatch(fetchFail());
       console.log(error);
     }
@@ -56,16 +55,16 @@ const useStockRequest = () => {
     dispatch(fetchStart());
     try {
       await axiosToken.put(`/${path}/${info._id}`, info);
-      toastSuccessNotify(`${path}`)
+      toastSuccessNotify(`${path} erfolgreich aktualisiert`);
       getStock(path);
     } catch (error) {
-      toastErrorNotify(`${path}`)
+      toastErrorNotify(`${path} konnte nicht aktualisiert werden`);
       dispatch(fetchFail());
       console.log(error);
     }
   };
 
-  //? beispiel Promise.All 
+  //? beispiel Promise.All
   const getStockData = async () => {
     try {
       const [pro, pur, bra, fir] = await Promise.all([
@@ -73,14 +72,12 @@ const useStockRequest = () => {
         axiosToken("/purchases"),
         axiosToken("/brands"),
         axiosToken("/firms"),
-        
       ]);
 
       const products = pro?.data?.data;
       const purchases = pur?.data?.data;
       const brands = bra?.data?.data;
       const firms = fir?.data?.data;
-      
 
       dispatch(
         getStockDataSuccess({
@@ -88,11 +85,10 @@ const useStockRequest = () => {
           purchases,
           brands,
           firms,
-          
         })
       );
     } catch (error) {
-      
+      toastErrorNotify(`Daten konnten nicht abgerufen werden.`);
       console.log(error);
       dispatch(fetchFail());
     }

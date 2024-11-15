@@ -10,6 +10,10 @@ import StoreIcon from "@mui/icons-material/Store";
 import StarsIcon from "@mui/icons-material/Stars";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { useNavigate } from "react-router-dom";
+import Logo from "../assets/mek.png";
+import { Box, IconButton } from "@mui/material";
+import GitHubIcon from "@mui/icons-material/GitHub";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
 
 const MenuListComp = () => {
   const navigate = useNavigate();
@@ -48,7 +52,28 @@ const MenuListComp = () => {
   ];
 
   return (
-    <div>
+    <Box
+      sx={{
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
+      }}
+    >
+      <Box
+        component="img"
+        sx={{
+          height: 65,
+          width: 65,
+          border: 2,
+          color: "white",
+          borderRadius: "50%",
+          marginBottom: 2,
+        }}
+        alt="logo"
+        src={Logo}
+      />
+
       <List>
         {icons.map((item, index) => (
           <ListItem
@@ -69,7 +94,32 @@ const MenuListComp = () => {
           </ListItem>
         ))}
       </List>
-    </div>
+
+      <Box
+        sx={{
+          display: "flex",
+          gap: 2,
+          marginTop: { xs: 5, md: 18, lg: 18 },
+        }}
+      >
+        <IconButton
+          component="a"
+          href="https://github.com/MuzafferKocak"
+          target="_blank"
+          sx={{ color: "white", "&:hover": { color: "red" } }}
+        >
+          <GitHubIcon />
+        </IconButton>
+        <IconButton
+          component="a"
+          href="https://www.linkedin.com/in/muzaffer-kocak/"
+          target="_blank"
+          sx={{ color: "white", "&:hover": { color: "red" } }}
+        >
+          <LinkedInIcon />
+        </IconButton>
+      </Box>
+    </Box>
   );
 };
 

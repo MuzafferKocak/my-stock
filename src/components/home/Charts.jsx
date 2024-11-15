@@ -69,7 +69,7 @@ const Charts = () => {
               dataKey="Date"
               label={{ value: "", position: "insideBottomRight" }}
             />
-            <YAxis tickFormatter={(value) => `€${value}`} />
+            <YAxis tickFormatter={(value) => `€${value / 1_000}k`} />
             <Tooltip formatter={(value) => dataFormatter(value)} />
             <Legend />
             <Line
@@ -110,7 +110,7 @@ const Charts = () => {
               dataKey="Date"
               label={{ value: "", position: "insideBottomRight" }}
             />
-            <YAxis tickFormatter={(value) => `€${value}`} />
+            <YAxis tickFormatter={(value) => `€${value / 1_000}k`} />
             <Tooltip formatter={(value) => dataFormatter(value)} />
             <Legend />
 

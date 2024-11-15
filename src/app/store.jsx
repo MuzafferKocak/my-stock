@@ -1,6 +1,6 @@
-import { configureStore } from "@reduxjs/toolkit"
-import authReducer from "../features/authSlice"
-import stockReducer from "../features/stockSlice"
+import { configureStore } from "@reduxjs/toolkit";
+import authReducer from "../features/authSlice";
+import stockReducer from "../features/stockSlice";
 
 import {
   persistStore,
@@ -11,16 +11,16 @@ import {
   PERSIST,
   PURGE,
   REGISTER,
-} from "redux-persist"
-import storage from "redux-persist/lib/storage" //? defaults to localStorage
+} from "redux-persist";
+import storage from "redux-persist/lib/storage"; //? defaults to localStorage
 // import storage from "redux-persist/lib/storage/session" //? session storage
 
 const persistConfig = {
   key: "root",
   storage,
-}
+};
 
-const persistedReducer = persistReducer(persistConfig, authReducer)
+const persistedReducer = persistReducer(persistConfig, authReducer);
 
 const store = configureStore({
   reducer: {
@@ -34,7 +34,7 @@ const store = configureStore({
       },
     }),
   devTools: process.env.NODE_ENV !== "production",
-})
+});
 
-export const persistor = persistStore(store)
-export default store
+export const persistor = persistStore(store);
+export default store;

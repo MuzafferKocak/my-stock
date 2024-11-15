@@ -14,6 +14,7 @@ import { useSelector } from "react-redux";
 import useApiRequest from "../services/useApiRequest";
 import { Outlet } from "react-router-dom";
 import MenuListComp from "../components/MenuListComp";
+import Logo from "../assets/mek.png"
 
 const drawerWidth = 200;
 
@@ -48,12 +49,12 @@ function Dashboard(props) {
     </div>
   );
 
-  // Remove this const when copying and pasting into your project.
   const container =
     window !== undefined ? () => window().document.body : undefined;
 
   return (
-    <Box sx={{ display: "flex" }}>
+    <Box sx={{ display: "flex"}}>
+    
       <CssBaseline />
       <AppBar
         position="fixed"
@@ -87,7 +88,6 @@ function Dashboard(props) {
         sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}
         aria-label="mailbox folders"
       >
-        {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
         <Drawer
           container={container}
           variant="temporary"
@@ -95,7 +95,7 @@ function Dashboard(props) {
           onTransitionEnd={handleDrawerTransitionEnd}
           onClose={handleDrawerClose}
           ModalProps={{
-            keepMounted: true, // Better open performance on mobile.
+            keepMounted: true,
           }}
           sx={{
             display: { xs: "block", sm: "none" },
