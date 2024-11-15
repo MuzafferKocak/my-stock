@@ -14,7 +14,6 @@ import { useSelector } from "react-redux";
 import useApiRequest from "../services/useApiRequest";
 import { Outlet } from "react-router-dom";
 import MenuListComp from "../components/MenuListComp";
-import Logo from "../assets/mek.png"
 
 const drawerWidth = 200;
 
@@ -53,14 +52,14 @@ function Dashboard(props) {
     window !== undefined ? () => window().document.body : undefined;
 
   return (
-    <Box sx={{ display: "flex"}}>
-    
+    <Box sx={{ display: "flex" }}>
       <CssBaseline />
       <AppBar
         position="fixed"
         sx={{
           width: { sm: `calc(100% - ${drawerWidth}px)` },
           ml: { sm: `${drawerWidth}px` },
+          backgroundColor: "#1F917E",
         }}
       >
         <Toolbar>
@@ -73,8 +72,14 @@ function Dashboard(props) {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" noWrap component="div" sx={{ flexGrow: 1 }}>
-            STOCK APP
+
+          <Typography
+            variant="h6"
+            noWrap
+            component="div"
+            sx={{ flexGrow: 1, fontWeight: "bold", fontStyle: "italic" }}
+          >
+            MY STOCK
           </Typography>
           {user && (
             <Button color="inherit" onClick={logout}>
@@ -102,7 +107,7 @@ function Dashboard(props) {
             "& .MuiDrawer-paper": {
               boxSizing: "border-box",
               width: drawerWidth,
-              backgroundColor: "secondary.main",
+              backgroundColor: "#1F917E",
             },
           }}
         >
@@ -115,7 +120,7 @@ function Dashboard(props) {
             "& .MuiDrawer-paper": {
               boxSizing: "border-box",
               width: drawerWidth,
-              backgroundColor: "secondary.main",
+              backgroundColor: "#1F917E",
             },
           }}
           open

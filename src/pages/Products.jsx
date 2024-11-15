@@ -6,7 +6,6 @@ import ProductModal from "../components/products/ProductModal";
 import { useSelector } from "react-redux";
 import { ErrorMessage } from "../components/DataFetchMessages";
 
-
 const Products = () => {
   const { getStock } = useStockRequest();
   const { error } = useSelector((state) => state.stock);
@@ -31,13 +30,17 @@ const Products = () => {
 
   return (
     <div>
-      <Typography variant="h4" color={"error"} component="div" mb={2}>
+      <Typography variant="h4" color={"#07473C"} component="div" mb={2}>
         Product
       </Typography>
       <Button
         variant="contained"
         onClick={handleOpen}
-        sx={{ mb: 2 }}
+        sx={{
+          mb: 2,
+          bgcolor: "#23453F",
+          "&:hover": { backgroundColor: "#1D8574" },
+        }}
         disabled={error}
       >
         New Product
@@ -50,8 +53,6 @@ const Products = () => {
         info={info}
         setInfo={setInfo}
       />
-
-      
     </div>
   );
 };

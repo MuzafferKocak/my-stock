@@ -36,13 +36,17 @@ const Sales = () => {
 
   return (
     <div>
-      <Typography variant="h4" color={"error"} component="div" mb={2}>
+      <Typography variant="h4" color={"#07473C"} component="div" mb={2}>
         Sales
       </Typography>
       <Button
         variant="contained"
         onClick={handleOpen}
-        sx={{ mb: 2 }}
+        sx={{
+          mb: 2,
+          bgcolor: "#23453F",
+          "&:hover": { backgroundColor: "#1D8574" },
+        }}
         disabled={error}
       >
         New Sales

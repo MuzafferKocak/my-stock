@@ -11,7 +11,7 @@ import StarsIcon from "@mui/icons-material/Stars";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { useNavigate } from "react-router-dom";
 import Logo from "../assets/mek.png";
-import { Box, IconButton } from "@mui/material";
+import { Box, IconButton, Typography } from "@mui/material";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 
@@ -81,15 +81,21 @@ const MenuListComp = () => {
             disablePadding
             onClick={() => navigate(item.path)}
             sx={{
-              color: "white",
-              "& .MuiSvgIcon-root": { color: "white" },
-              "&:hover": { color: "red" },
-              "&:hover .MuiSvgIcon-root": { color: "red" },
+              color: "#39070F",
+              "& .MuiSvgIcon-root": { color: "#39070F", fontSize: "1.7rem" },
+              "&:hover": { color: "#D53535" },
+              "&:hover .MuiSvgIcon-root": { color: "#D53535" },
             }}
           >
             <ListItemButton>
               <ListItemIcon>{item.iconName}</ListItemIcon>
-              <ListItemText primary={item.title} />
+              <ListItemText
+                primary={
+                  <Typography sx={{ fontSize: "1.1rem", fontWeight: "bold" }}>
+                    {item.title}
+                  </Typography>
+                }
+              />
             </ListItemButton>
           </ListItem>
         ))}
@@ -99,24 +105,24 @@ const MenuListComp = () => {
         sx={{
           display: "flex",
           gap: 2,
-          marginTop: { xs: 5, md: 18, lg: 18 },
+          marginTop: { xs: 5, md: 15, lg: 15 },
         }}
       >
         <IconButton
           component="a"
           href="https://github.com/MuzafferKocak"
           target="_blank"
-          sx={{ color: "white", "&:hover": { color: "red" } }}
+          sx={{ color: "#39070F", "&:hover": { color: "#D53535" } }}
         >
-          <GitHubIcon />
+          <GitHubIcon sx={{ fontSize: "2.2rem" }} />
         </IconButton>
         <IconButton
           component="a"
           href="https://www.linkedin.com/in/muzaffer-kocak/"
           target="_blank"
-          sx={{ color: "white", "&:hover": { color: "red" } }}
+          sx={{ color: "#39070F", "&:hover": { color: "#D53535" } }}
         >
-          <LinkedInIcon />
+          <LinkedInIcon sx={{ fontSize: "2.2rem" }} />
         </IconButton>
       </Box>
     </Box>

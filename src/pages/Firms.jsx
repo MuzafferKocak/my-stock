@@ -8,7 +8,7 @@ import FirmModal from "../components/firms/FirmModal";
 
 const Firms = () => {
   const { getStock } = useStockRequest();
-  const { firms } = useSelector((state) => state.stock);
+  const { firms, error } = useSelector((state) => state.stock);
   const [open, setOpen] = useState();
   const handleOpen = () => setOpen(true);
 
@@ -31,15 +31,23 @@ const Firms = () => {
 
   useEffect(() => {
     getStock("firms");
-    
   }, []); // eslint-disable-line
 
   return (
     <div>
-      <Typography variant="h4" color={"error"} component="div" mb={2}>
+      <Typography variant="h4" color={"#07473C"} component="div" mb={2}>
         Firms
       </Typography>
-      <Button variant="contained" onClick={handleOpen} sx={{ mb: 1 }}>
+      <Button
+        variant="contained"
+        onClick={handleOpen}
+        sx={{
+          mb: 1,
+          bgcolor: "#23453F",
+          "&:hover": { backgroundColor: "#1D8574" },
+        }}
+        disabled={error}
+      >
         New Firm
       </Button>
 

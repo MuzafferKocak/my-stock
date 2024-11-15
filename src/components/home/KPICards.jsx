@@ -59,6 +59,7 @@ const KPICards = () => {
             width: 255,
             p: 2,
             gap: 2,
+            bgcolor: "#AACEC8",
           }}
         >
           <Avatar
