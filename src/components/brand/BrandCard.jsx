@@ -28,19 +28,21 @@ export default function BrandCard({ brand, handleOpen, setInfo }) {
       <CardMedia
         component="img"
         sx={{ p: 1, objectFit: "contain", height: "250px" }}
-        image={brand.image}
-        alt={brand.name}
+        image={brand?.image}
+        alt={brand?.name}
       />
       <CardActions>
         <DeleteOutlineIcon
           sx={btnStyle}
           onClick={() => deleteStock("brands", brand._id)}
         />
-        <EditIcon sx={btnStyle} onClick={()=>{
-          handleOpen()
-          setInfo(brand)
-        }} />
-        
+        <EditIcon
+          sx={btnStyle}
+          onClick={() => {
+            handleOpen();
+            setInfo(brand);
+          }}
+        />
       </CardActions>
     </Card>
   );

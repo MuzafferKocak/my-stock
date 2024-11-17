@@ -2,14 +2,14 @@ import { useEffect, useState } from "react";
 import useStockRequest from "../services/useStockRequest";
 import { Button, Typography } from "@mui/material";
 import { useSelector } from "react-redux";
-import { ErrorMessage } from "../components/DataFetchMessages";
+import { ErrorMessage, TableSkeleton } from "../components/DataFetchMessages";
 
 import SalesTable from "../components/sales/SalesTable";
 import SalesModal from "../components/sales/SalesModal";
 
 const Sales = () => {
   const { getStock } = useStockRequest();
-  const { error } = useSelector((state) => state.stock);
+  const { sales, loading, error } = useSelector((state) => state.stock);
 
   const [open, setOpen] = useState();
   const handleOpen = () => setOpen(true);
@@ -51,8 +51,18 @@ const Sales = () => {
       >
         New Sales
       </Button>
-      {error && <ErrorMessage />}
-      {!error && <SalesTable setInfo={setInfo} handleOpen={handleOpen} />}
+
+      {loading && (
+        <TableSkeleton>
+          <SalesTable />
+        </TableSkeleton>
+      )}
+
+      {!loading && !sales?.length && <ErrorMessage />}
+
+      {!loading && sales?.length > 0 && (
+        <SalesTable setInfo={setInfo} handleOpen={handleOpen} />
+      )}
       <SalesModal
         open={open}
         handleClose={handleClose}

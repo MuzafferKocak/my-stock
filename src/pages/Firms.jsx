@@ -5,10 +5,12 @@ import { Button, Typography } from "@mui/material";
 import Grid from "@mui/material/Grid2";
 import FirmCard from "../components/firms/FirmCard";
 import FirmModal from "../components/firms/FirmModal";
+import { CardSkeleton, ErrorMessage } from "../components/DataFetchMessages";
+import BrandCard from "../components/brand/BrandCard";
 
 const Firms = () => {
   const { getStock } = useStockRequest();
-  const { firms, error } = useSelector((state) => state.stock);
+  const { firms, error, loading } = useSelector((state) => state.stock);
   const [open, setOpen] = useState();
   const handleOpen = () => setOpen(true);
 
@@ -58,13 +60,23 @@ const Firms = () => {
         setInfo={setInfo}
       />
 
-      <Grid container spacing={2} mt={3} justifyContent={"center"}>
-        {firms.map((firm) => (
-          <Grid item key={firm._id} xs={12} sm={6} md={4}>
-            <FirmCard firm={firm} handleOpen={handleOpen} setInfo={setInfo} />
-          </Grid>
-        ))}
-      </Grid>
+      {loading && (
+        <CardSkeleton>
+          <BrandCard />
+        </CardSkeleton>
+      )}
+
+      {!loading && !firms?.length && <ErrorMessage />}
+
+      {!loading && firms?.length > 0 && (
+        <Grid container spacing={2} mt={3} justifyContent={"center"}>
+          {firms.map((firm) => (
+            <Grid item key={firm._id} xs={12} sm={6} md={4}>
+              <FirmCard firm={firm} handleOpen={handleOpen} setInfo={setInfo} />
+            </Grid>
+          ))}
+        </Grid>
+      )}
     </div>
   );
 };

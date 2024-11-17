@@ -2,13 +2,13 @@ import { useEffect, useState } from "react";
 import useStockRequest from "../services/useStockRequest";
 import { Button, Typography } from "@mui/material";
 import { useSelector } from "react-redux";
-import { ErrorMessage } from "../components/DataFetchMessages";
+import { ErrorMessage, TableSkeleton } from "../components/DataFetchMessages";
 import PurchasesTable from "../components/purchases/PurchasesTable";
 import PurchasesModal from "../components/purchases/PurchasesModal";
 
 const Purchases = () => {
   const { getStockData } = useStockRequest();
-  const { error } = useSelector((state) => state.stock);
+  const { purchases, loading, error } = useSelector((state) => state.stock);
 
   const [open, setOpen] = useState();
   const handleOpen = () => setOpen(true);
@@ -49,8 +49,18 @@ const Purchases = () => {
       >
         New Purchases
       </Button>
-      {error && <ErrorMessage />}
-      {!error && <PurchasesTable setInfo={setInfo} handleOpen={handleOpen} />}
+
+      {loading && (
+        <TableSkeleton>
+          <PurchasesTable />
+        </TableSkeleton>
+      )}
+
+      {!loading && !purchases?.length && <ErrorMessage />}
+
+      {!loading && purchases?.length > 0 && (
+        <PurchasesTable setInfo={setInfo} handleOpen={handleOpen} />
+      )}
       <PurchasesModal
         open={open}
         handleClose={handleClose}

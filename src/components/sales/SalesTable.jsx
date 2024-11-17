@@ -13,8 +13,6 @@ export default function SalesTable({ handleOpen, setInfo }) {
 
   const getRowId = (row) => row._id;
 
-  console.log(sales);
-
   const columns = [
     {
       field: "createdAt",

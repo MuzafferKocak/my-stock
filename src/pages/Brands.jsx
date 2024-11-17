@@ -5,10 +5,11 @@ import { useEffect, useState } from "react";
 import useStockRequest from "../services/useStockRequest";
 import { useSelector } from "react-redux";
 import BrandModal from "../components/brand/BrandModal";
+import { CardSkeleton, ErrorMessage } from "../components/DataFetchMessages";
 
 const Brands = () => {
   const { getStock } = useStockRequest();
-  const { brands, error } = useSelector((state) => state.stock);
+  const { brands, loading, error } = useSelector((state) => state.stock);
 
   const [info, setInfo] = useState({ name: "", image: "" });
   const [open, setOpen] = useState(false);
@@ -38,17 +39,28 @@ const Brands = () => {
         New Brands
       </Button>
 
-      <Grid container spacing={2} mt={3} justifyContent={"center"}>
-        {brands.map((brand) => (
-          <Grid item key={brand._id} xs={12} sm={6} md={4}>
-            <BrandCard
-              brand={brand}
-              handleOpen={handleOpen}
-              setInfo={setInfo}
-            />
-          </Grid>
-        ))}
-      </Grid>
+      {loading && (
+        <CardSkeleton>
+          <BrandCard />
+        </CardSkeleton>
+      )}
+
+      {!loading && !brands?.length && <ErrorMessage />}
+
+      {!loading && brands?.length > 0 && (
+        <Grid container spacing={2} mt={3} justifyContent={"center"}>
+          {brands.map((brand) => (
+            <Grid item key={brand._id} xs={12} sm={6} md={4}>
+              <BrandCard
+                brand={brand}
+                handleOpen={handleOpen}
+                setInfo={setInfo}
+              />
+            </Grid>
+          ))}
+        </Grid>
+      )}
+
       <BrandModal
         open={open}
         handleClose={handleClose}
