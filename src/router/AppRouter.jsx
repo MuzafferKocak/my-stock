@@ -23,7 +23,13 @@ const AppRouter = () => {
           <Route
             path="stock"
             element={
-              <Box sx={{ backgroundColor: "#c8c3cc", color: "#060608", minHeight: "100vh" }}>
+              <Box
+                sx={{
+                  backgroundColor: "#c8c3cc",
+                  color: "#060608",
+                  minHeight: "100vh",
+                }}
+              >
                 <PrivateRouter />
               </Box>
             }

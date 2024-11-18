@@ -139,16 +139,16 @@ export default function PurchasesTable({ handleOpen, setInfo }) {
         getRowId={getRowId}
         slots={{ toolbar: GridToolbar }}
         sx={{
-         
           "& .MuiDataGrid-columnHeader": {
             backgroundColor: "#AACEC8",
-            color: "#060608", 
-            fontSize:"1.1rem",
+            color: "#060608",
+            fontSize: "1.1rem",
           },
-         "& .MuiDataGrid-cell":{
-          color:"#060608", 
-           fontSize:"1rem",
-         }}}
+          "& .MuiDataGrid-cell": {
+            color: "#060608",
+            fontSize: "1rem",
+          },
+        }}
       />
     </Box>
   );
