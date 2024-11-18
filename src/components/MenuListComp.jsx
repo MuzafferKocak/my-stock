@@ -105,7 +105,7 @@ const MenuListComp = () => {
         sx={{
           display: "flex",
           gap: 2,
-          marginTop: { xs: 5, md: 15, lg: 15 },
+          marginTop: { xs: 5, md: 8, lg: 10 },
         }}
       >
         <IconButton
