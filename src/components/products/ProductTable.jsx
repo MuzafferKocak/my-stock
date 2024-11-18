@@ -15,6 +15,8 @@ export default function ProductTable() {
     {
       field: "categoriesId",
       headerName: "Categories",
+      headerAlign: "center",
+      align: "center",
       flex: 1,
       minWidth: 100,
 
@@ -80,6 +82,17 @@ export default function ProductTable() {
         disableRowSelectionOnClick
         getRowId={getRowId}
         slots={{ toolbar: GridToolbar }}
+        sx={{
+         
+         "& .MuiDataGrid-columnHeader": {
+           backgroundColor: "#AACEC8",
+           color: "#060608",
+           fontSize:"1.1rem", 
+         },
+         "& .MuiDataGrid-cell":{
+          color:"#060608", 
+           fontSize:"1rem",
+         }}}
       />
     </Box>
   );

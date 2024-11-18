@@ -22,6 +22,7 @@ export default function PurchasesTable({ handleOpen, setInfo }) {
       minWidth: 160,
       headerAlign: "center",
       align: "center",
+
       renderCell: ({ row }) => {
         return new Date(row.createdAt).toLocaleString("de-DE");
       },
@@ -31,6 +32,8 @@ export default function PurchasesTable({ handleOpen, setInfo }) {
       headerName: "Firm",
       flex: 1,
       minWidth: 100,
+      headerAlign: "center",
+      align: "center",
 
       renderCell: ({ row }) => row?.firmId?.name,
     },
@@ -135,6 +138,17 @@ export default function PurchasesTable({ handleOpen, setInfo }) {
         disableRowSelectionOnClick
         getRowId={getRowId}
         slots={{ toolbar: GridToolbar }}
+        sx={{
+         
+          "& .MuiDataGrid-columnHeader": {
+            backgroundColor: "#AACEC8",
+            color: "#060608", 
+            fontSize:"1.1rem",
+          },
+         "& .MuiDataGrid-cell":{
+          color:"#060608", 
+           fontSize:"1rem",
+         }}}
       />
     </Box>
   );
