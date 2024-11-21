@@ -21,14 +21,20 @@ export default function FirmCard({ firm, handleOpen, setInfo }) {
         alignItems: "center",
         justifyContent: "space-between",
         width: "350px",
-        height: "450px",
+        height: "480px",
+        backgroundColor: "#DBDBDB",
         p: 2,
         mt: 1,
       }}
     >
       <CardMedia
         component="img"
-        sx={{ height: 100 }}
+        sx={{
+          height: 160,
+          objectFit: "contain",
+          objectPosition: "center",
+          
+        }}
         image={firm?.image}
         alt={firm?.name}
       />

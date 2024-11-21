@@ -19,6 +19,7 @@ export default function BrandCard({ brand, handleOpen, setInfo }) {
         flexDirection: "column",
         alignItems: "center",
         justifyContent: "center",
+        backgroundColor: "#DBDBDB",
         width: "350px",
         height: "450px",
         p: 2,
@@ -27,7 +28,12 @@ export default function BrandCard({ brand, handleOpen, setInfo }) {
       <CardHeader title={brand?.name} />
       <CardMedia
         component="img"
-        sx={{ p: 1, objectFit: "contain", height: "250px" }}
+        sx={{
+          p: 1,
+          objectFit: "contain",
+          objectPosition: "center",
+          height: "250px",
+        }}
         image={brand?.image}
         alt={brand?.name}
       />
