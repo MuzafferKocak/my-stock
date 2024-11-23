@@ -3,12 +3,12 @@ import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid2";
 import Typography from "@mui/material/Typography";
 import LockIcon from "@mui/icons-material/Lock";
-import image from "../assets/result.svg";
+import image from "../assets/stack.jpg";
 import { Link } from "react-router-dom";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import { Button } from "@mui/material";
-import { Formik, Form } from "formik";
+import { Formik} from "formik";
 import { object, string } from "yup";
 // import { login } from "../services/apiRequest";
 import useApiRequest from "../services/useApiRequest";
@@ -30,37 +30,38 @@ const Login = () => {
   });
 
   return (
-    <Container maxWidth="sm">
-      <Box
+    <Container maxWidth="lg">
+      <Box sx={{ textAlign: "center", mb: 1 }}>
+        <Typography variant="h3" color="primary" align="center">
+          MY STOCK
+        </Typography>
+      </Box>
+      <Grid
         container
         justifyContent="center"
+        alignItems="center"
         direction="row-reverse"
+        spacing={3}
         sx={{
           height: "100vh",
           p: 2,
         }}
       >
-        <Grid item xs={12} mb={3}>
-          <Typography variant="h3" color="primary" align="center">
-            MY STOCK
-          </Typography>
-        </Grid>
-
-        <Grid item xs={12} sm={10} md={6}>
+        <Grid item xs={12} md={6}>
           <Avatar
             sx={{
               backgroundColor: "secondary.light",
               m: "auto",
-              width: 40,
-              height: 40,
+              width: 45,
+              height: 45,
             }}
           >
-            <LockIcon size="30" />
+            <LockIcon />
           </Avatar>
           <Typography
             variant="h4"
             align="center"
-            mb={4}
+            mb={3}
             color="secondary.light"
           >
             Login
@@ -81,8 +82,13 @@ const Login = () => {
               touched,
               errors,
               isSubmitting,
+              handleSubmit,
             }) => (
-              <Form>
+              <Box
+                component="form"
+                onSubmit={handleSubmit}
+                sx={{ width: "450px", maxWidth: "500px", m: "auto" }}
+              >
                 <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
                   <TextField
                     label="Email"
@@ -95,6 +101,13 @@ const Login = () => {
                     onBlur={handleBlur}
                     error={touched.email && Boolean(errors.email)}
                     helperText={touched.email && errors.email}
+                    sx={{
+                      width: "100%",
+                      maxWidth: "100%",
+                      "@media (max-width:600px)": {
+                        width: "70%",
+                      },
+                    }}
                   />
                   <TextField
                     label="password"
@@ -107,16 +120,31 @@ const Login = () => {
                     onBlur={handleBlur}
                     error={touched.password && Boolean(errors.password)}
                     helperText={touched.password && errors.password}
+                    sx={{
+                      width: "100%",
+                      maxWidth: "100%",
+                      "@media (max-width:600px)": {
+                        width: "70%",
+                      },
+                    }}
                   />
                   <Button
                     variant="contained"
                     type="submit"
                     disabled={isSubmitting}
+                    sx={{
+                      mt: 2,
+                      width: "100%",
+                      maxWidth: "100%",
+                      "@media (max-width:600px)": {
+                        width: "70%",
+                      },
+                    }}
                   >
                     Submit
                   </Button>
                 </Box>
-              </Form>
+              </Box>
             )}
           </Formik>
 
@@ -124,13 +152,20 @@ const Login = () => {
             <Link to="/register">Do you have not an account?</Link>
           </Box>
         </Grid>
-
-        <Grid xs={10} sm={7} md={6}>
-          <Container>
-            <img src={image} alt="img" />
-          </Container>
+        <Grid item xs={12} md={6}>
+          <Box sx={{ textAlign: "center" }}>
+            <img
+              src={image}
+              alt="stack"
+              style={{
+                maxWidth: "100%",
+                height: "auto",
+                borderRadius: "10px",
+              }}
+            />
+          </Box>
         </Grid>
-      </Box>
+      </Grid>
     </Container>
   );
 };

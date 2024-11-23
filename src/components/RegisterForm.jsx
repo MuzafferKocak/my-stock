@@ -36,7 +36,18 @@ const RegisterForm = ({
 }) => {
   return (
     <Form>
-      <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
+      <Box
+        sx={{
+          width: "450px",
+          maxWidth: "500px",
+          m: "auto",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+
+          gap: 2,
+        }}
+      >
         <TextField
           label="User Name"
           name="username"
@@ -48,6 +59,13 @@ const RegisterForm = ({
           onBlur={handleBlur}
           error={touched.username && Boolean(errors.username)}
           helperText={touched.username && errors.username}
+          sx={{
+            width: "100%",
+            maxWidth: "100%",
+            "@media (max-width:600px)": {
+              width: "60%",
+            },
+          }}
         />
         <TextField
           label="First Name"
@@ -60,6 +78,13 @@ const RegisterForm = ({
           onBlur={handleBlur}
           error={touched.firstName && Boolean(errors.firstName)}
           helperText={touched.firstName && errors.firstName}
+          sx={{
+            width: "100%",
+            maxWidth: "100%",
+            "@media (max-width:600px)": {
+              width: "60%",
+            },
+          }}
         />
         <TextField
           label="Last Name"
@@ -72,6 +97,13 @@ const RegisterForm = ({
           onBlur={handleBlur}
           error={touched.lastName && Boolean(errors.lastName)}
           helperText={touched.lastName && errors.lastName}
+          sx={{
+            width: "100%",
+            maxWidth: "100%",
+            "@media (max-width:600px)": {
+              width: "60%",
+            },
+          }}
         />
         <TextField
           label="Email"
@@ -84,6 +116,13 @@ const RegisterForm = ({
           onBlur={handleBlur}
           error={touched.email && Boolean(errors.email)}
           helperText={touched.email && errors.email}
+          sx={{
+            width: "100%",
+            maxWidth: "100%",
+            "@media (max-width:600px)": {
+              width: "60%",
+            },
+          }}
         />
         <TextField
           label="password"
@@ -96,8 +135,26 @@ const RegisterForm = ({
           onBlur={handleBlur}
           error={touched.password && Boolean(errors.password)}
           helperText={touched.password && errors.password}
+          sx={{
+            width: "100%",
+            maxWidth: "100%",
+            "@media (max-width:600px)": {
+              width: "60%",
+            },
+          }}
         />
-        <Button type="submit" variant="contained" size="large">
+        <Button
+          type="submit"
+          variant="contained"
+          sx={{
+            mt: 2,
+            width: "100%",
+            maxWidth: "100%",
+            "@media (max-width:600px)": {
+              width: "60%",
+            },
+          }}
+        >
           Submit
         </Button>
       </Box>

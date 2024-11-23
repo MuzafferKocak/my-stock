@@ -2,7 +2,7 @@ import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 import Avatar from "@mui/material/Avatar";
 import LockIcon from "@mui/icons-material/Lock";
-import image from "../assets/result.svg";
+import image from "../assets/stack.jpg";
 import Grid from "@mui/material/Grid2";
 import Box from "@mui/material/Box";
 import { Link } from "react-router-dom";
@@ -14,37 +14,38 @@ const Register = () => {
   const { register } = useApiRequest();
 
   return (
-    <Container maxWidth="sm">
+    <Container maxWidth="lg">
+      <Box sx={{ textAlign: "center", mb: 1 }}>
+        <Typography variant="h3" color="primary" align="center">
+          MY STOCK
+        </Typography>
+      </Box>
       <Grid
+        container
         justifyContent="center"
+        alignItems="center"
         direction="row-reverse"
-        rowSpacing={{ sm: 3 }}
+        spacing={5}
         sx={{
           height: "100vh",
           p: 2,
         }}
       >
-        <Grid item xs={12}>
-          <Typography variant="h3" color="primary" align="center">
-            STOCK APP
-          </Typography>
-        </Grid>
-
-        <Grid item xs={12} sm={10} md={6}>
+        <Grid item xs={12} md={6}>
           <Avatar
             sx={{
               backgroundColor: "secondary.light",
               m: "auto",
-              width: 40,
-              height: 40,
+              width: 45,
+              height: 45,
             }}
           >
-            <LockIcon size="30" />
+            <LockIcon />
           </Avatar>
           <Typography
             variant="h4"
             align="center"
-            mb={2}
+            mb={1}
             color="secondary.light"
           >
             Register
@@ -72,10 +73,22 @@ const Register = () => {
           </Box>
         </Grid>
 
-        <Grid item xs={0} sm={7} md={6}>
-          <Container>
-            <img src={image} alt="" />
-          </Container>
+        <Grid item xs={12} md={6}>
+          <Box
+            sx={{
+              textAlign: "center",
+            }}
+          >
+            <img
+              src={image}
+              alt="stock"
+              style={{
+                maxWidth: "100%",
+                height: "420px",
+                borderRadius: "10px",
+              }}
+            />
+          </Box>
         </Grid>
       </Grid>
     </Container>

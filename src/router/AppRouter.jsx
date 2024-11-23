@@ -10,15 +10,35 @@ import Purchases from "../pages/Purchases";
 import Products from "../pages/Products";
 import Brands from "../pages/Brands";
 import Firms from "../pages/Firms";
-import { Box } from "@mui/material";
+import { Box, CssBaseline } from "@mui/material";
 
 const AppRouter = () => {
+  const background = {
+    backgroundColor: "#c8c3cc",
+    minHeight: "100vh",
+    margin: 0,
+  };
   return (
     <>
       <Router>
+        <CssBaseline />
         <Routes>
-          <Route path="/" element={<Login />} />
-          <Route path="register" element={<Register />} />
+          <Route
+            path="/"
+            element={
+              <Box sx={background}>
+                <Login />
+              </Box>
+            }
+          />
+          <Route
+            path="register"
+            element={
+              <Box sx={background}>
+                <Register />
+              </Box>
+            }
+          />
 
           <Route
             path="stock"
@@ -28,6 +48,7 @@ const AppRouter = () => {
                   backgroundColor: "#c8c3cc",
                   color: "#060608",
                   minHeight: "100vh",
+                  margin: 0,
                 }}
               >
                 <PrivateRouter />
