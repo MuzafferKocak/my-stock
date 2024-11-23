@@ -31,7 +31,7 @@ const Login = () => {
   return (
     <Container maxWidth="lg">
       <Box sx={{ textAlign: "center", mb: 1, p: 1 }}>
-        <Typography variant="h3" color="primary" align="center" >
+        <Typography variant="h3" color="primary" align="center">
           MY STOCK
         </Typography>
       </Box>
@@ -43,7 +43,6 @@ const Login = () => {
         spacing={3}
         sx={{
           height: "100vh",
-          
         }}
       >
         <Grid item xs={12} md={6}>
@@ -60,7 +59,7 @@ const Login = () => {
           <Typography
             variant="h4"
             align="center"
-            mb={3}
+            mb={2}
             color="secondary.light"
           >
             Login
@@ -86,9 +85,17 @@ const Login = () => {
               <Box
                 component="form"
                 onSubmit={handleSubmit}
-                sx={{ width: "450px", maxWidth: "500px", m: "auto" }}
+                sx={{
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  width: "450px",
+                  maxWidth: "500px",
+                  m: "auto",
+                  
+                }}
               >
-                <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
+                <Box sx={{ display: "flex", flexDirection: "column", gap: 2, width:"100%" }}>
                   <TextField
                     label="Email"
                     name="email"
@@ -104,7 +111,7 @@ const Login = () => {
                       width: "100%",
                       maxWidth: "100%",
                       "@media (max-width:600px)": {
-                        width: "70%",
+                        width: "80%",
                       },
                     }}
                   />
@@ -123,7 +130,7 @@ const Login = () => {
                       width: "100%",
                       maxWidth: "100%",
                       "@media (max-width:600px)": {
-                        width: "70%",
+                        width: "80%",
                       },
                     }}
                   />
@@ -136,7 +143,7 @@ const Login = () => {
                       width: "100%",
                       maxWidth: "100%",
                       "@media (max-width:600px)": {
-                        width: "70%",
+                        width: "80%",
                       },
                     }}
                   >
