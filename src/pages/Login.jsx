@@ -30,8 +30,8 @@ const Login = () => {
 
   return (
     <Container maxWidth="lg">
-      <Box sx={{ textAlign: "center", mb: 1 }}>
-        <Typography variant="h3" color="primary" align="center">
+      <Box sx={{ textAlign: "center", mb: 1, p: 1 }}>
+        <Typography variant="h3" color="primary" align="center" >
           MY STOCK
         </Typography>
       </Box>
@@ -43,7 +43,7 @@ const Login = () => {
         spacing={3}
         sx={{
           height: "100vh",
-          p: 2,
+          
         }}
       >
         <Grid item xs={12} md={6}>

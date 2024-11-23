@@ -15,7 +15,7 @@ const Register = () => {
 
   return (
     <Container maxWidth="lg">
-      <Box sx={{ textAlign: "center", mb: 1 }}>
+      <Box sx={{ textAlign: "center", mb: 1, p: 1 }}>
         <Typography variant="h3" color="primary" align="center">
           MY STOCK
         </Typography>
@@ -28,7 +28,7 @@ const Register = () => {
         spacing={2}
         sx={{
           height: "100%",
-          p: 2,
+          
         }}
       >
         <Grid item xs={12} md={6}>
