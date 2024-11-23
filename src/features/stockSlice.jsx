@@ -41,7 +41,6 @@ const stockSlice = createSlice({
       state.purchases = purchases;
       state.brands = brands;
       state.firms = firms;
-      
     },
     fetchFail: (state) => {
       state.loading = false;

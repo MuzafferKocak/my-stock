@@ -8,9 +8,8 @@ import { Link } from "react-router-dom";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import { Button } from "@mui/material";
-import { Formik} from "formik";
+import { Formik } from "formik";
 import { object, string } from "yup";
-// import { login } from "../services/apiRequest";
 import useApiRequest from "../services/useApiRequest";
 
 const Login = () => {
