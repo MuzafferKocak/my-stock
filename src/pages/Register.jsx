@@ -74,7 +74,7 @@ const Register = () => {
                   flexDirection: "column",
                   justifyContent: "center",
                   alignItems: "center",
-                  gap: 2,
+                  
                 }}
               >
                 <RegisterForm {...formikProps} />
