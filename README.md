@@ -60,3 +60,6 @@ Erstelle einen neuen Branch (git checkout -b feature/deine-funktion).
 Nimm deine Änderungen vor und committe sie (git commit -am 'Neue Funktion hinzufügen').
 Pushe deinen Branch (git push origin feature/deine-funktion).
 Öffne einen Pull Request.
+
+![my-stock2024-11-23](https://github.com/user-attachments/assets/aa10016a-3781-4a06-914f-10a4132796ed)
+
