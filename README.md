@@ -1,70 +1,62 @@
-# Getting Started with Create React App
+My Stock - Bestandsverwaltungs-App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+My Stock ist eine Anwendung zur Verwaltung von Beständen, mit der Benutzer ihre Produkte einfach verwalten können. Diese App enthält grundlegende Funktionen wie Verkaufs-, Einkaufs-, Produkt-, Marken- und Firmendatenverwaltung. Benutzer können sich anmelden, ein Konto erstellen, ihre Produkte hinzufügen und bearbeiten sowie den Bestand überwachen.
 
-## Available Scripts
+Funktionen
+Benutzerkontoverwaltung: Benutzer können ein Konto erstellen, sich anmelden und ihre Kontoinformationen verwalten.
+Bestandsverwaltung: Produkte können hinzugefügt, bearbeitet und gelöscht werden. Detaillierte Produktinformationen werden gespeichert.
+Verkaufs- und Einkaufsüberwachung: Benutzer können Verkaufs- und Kauftransaktionen überwachen.
+Marken- und Firmenverwaltung: Produkte können mit Marken und Firmen verknüpft werden.
+Technologien
+Frontend:
+React
+Material UI
+Formik & Yup (Formularvalidierung)
+React Router (Routing)
+Installation und Start
+Notwendige Anforderungen
+Um das Projekt auf deinem Rechner auszuführen, folge diesen Schritten:
 
-In the project directory, you can run:
+Repository klonen
+bash
+Code kopieren
+git clone https://github.com/MuzafferKocak/stock-app.git
+Abhängigkeiten installieren
+Öffne das Terminal und installiere die benötigten Abhängigkeiten für das Frontend:
 
-### `npm start`
+bash
+Code kopieren
+npm install
+App starten
+Starte die App im Entwicklungsmodus:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+bash
+Code kopieren
+npm start
+Die Anwendung wird unter http://localhost:3000 verfügbar sein.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Umgebungsvariablen
+Für die richtige Funktion der App musst du möglicherweise einige Umgebungsvariablen definieren. Erstelle eine .env-Datei und füge die folgenden Beispiele hinzu:
 
-### `npm test`
+arduino
+Code kopieren
+REACT_APP_API_URL=
+Benutzeroberfläche
+Login: Benutzer melden sich mit ihrer E-Mail und ihrem Passwort an.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Register: Neue Benutzer können ein Konto erstellen, indem sie ihre E-Mail-Adresse, ein Passwort und einen Benutzernamen angeben.
 
-### `npm run build`
+Dashboard: Benutzer können ihre Bestände und wichtige Informationen auf der Hauptseite einsehen.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Produktverwaltung: Benutzer können Produkte hinzufügen, bearbeiten und löschen.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Verkäufe und Käufe: Benutzer können ihre Verkaufs- und Kauftransaktionen verwalten.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Mitwirken
+Wenn du zur Entwicklung der App beitragen möchtest, folge diesen Schritten:
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Forke das Repository.
+Erstelle einen neuen Branch (git checkout -b feature/deine-funktion).
+Nimm deine Änderungen vor und committe sie (git commit -am 'Neue Funktion hinzufügen').
+Pushe deinen Branch (git push origin feature/deine-funktion).
+Öffne einen Pull Request.
