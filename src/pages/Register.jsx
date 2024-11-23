@@ -25,9 +25,9 @@ const Register = () => {
         justifyContent="center"
         alignItems="center"
         direction="row-reverse"
-        spacing={5}
+        spacing={2}
         sx={{
-          height: "100vh",
+          height: "100%",
           p: 2,
         }}
       >
@@ -65,8 +65,22 @@ const Register = () => {
               actions.resetForm();
               actions.setSubmitting();
             }}
-            component={(props) => <RegisterForm {...props} />}
-          ></Formik>
+            // component={(props) =>}
+          >
+            {(formikProps) => (
+              <Box
+                sx={{
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  gap: 2,
+                }}
+              >
+                <RegisterForm {...formikProps} />
+              </Box>
+            )}
+          </Formik>
 
           <Box sx={{ textAlign: "center", mt: 2 }}>
             <Link to="/">Do you have an account?</Link>
@@ -84,7 +98,7 @@ const Register = () => {
               alt="stock"
               style={{
                 maxWidth: "100%",
-                height: "420px",
+                height: "auto",
                 borderRadius: "10px",
               }}
             />

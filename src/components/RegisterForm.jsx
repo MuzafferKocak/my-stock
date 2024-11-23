@@ -44,7 +44,7 @@ const RegisterForm = ({
           display: "flex",
           flexDirection: "column",
           justifyContent: "center",
-
+          alignItems: "center",
           gap: 2,
         }}
       >
@@ -63,7 +63,7 @@ const RegisterForm = ({
             width: "100%",
             maxWidth: "100%",
             "@media (max-width:600px)": {
-              width: "60%",
+              width: "70%",
             },
           }}
         />
@@ -82,7 +82,7 @@ const RegisterForm = ({
             width: "100%",
             maxWidth: "100%",
             "@media (max-width:600px)": {
-              width: "60%",
+              width: "70%",
             },
           }}
         />
@@ -101,7 +101,7 @@ const RegisterForm = ({
             width: "100%",
             maxWidth: "100%",
             "@media (max-width:600px)": {
-              width: "60%",
+              width: "70%",
             },
           }}
         />
@@ -120,7 +120,7 @@ const RegisterForm = ({
             width: "100%",
             maxWidth: "100%",
             "@media (max-width:600px)": {
-              width: "60%",
+              width: "70%",
             },
           }}
         />
@@ -139,7 +139,7 @@ const RegisterForm = ({
             width: "100%",
             maxWidth: "100%",
             "@media (max-width:600px)": {
-              width: "60%",
+              width: "70%",
             },
           }}
         />
@@ -151,7 +151,7 @@ const RegisterForm = ({
             width: "100%",
             maxWidth: "100%",
             "@media (max-width:600px)": {
-              width: "60%",
+              width: "70%",
             },
           }}
         >
