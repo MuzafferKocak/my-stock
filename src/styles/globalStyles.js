@@ -13,3 +13,14 @@ export const modalStyle = {
   boxShadow: 24,
   p: 4,
 };
+export const backgroundStyle = {
+  backgroundColor: "#c8c3cc",
+  minHeight: "100vh",
+  margin: 0,
+};
+export const background = {
+  backgroundColor: "#c8c3cc",
+  color: "#060608",
+  minHeight: "100vh",
+  margin: 0,
+};
