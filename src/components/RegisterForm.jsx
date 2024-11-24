@@ -33,6 +33,7 @@ const RegisterForm = ({
   handleBlur,
   errors,
   touched,
+  isSubmitting,
 }) => {
   return (
     <Form>
@@ -45,7 +46,7 @@ const RegisterForm = ({
           flexDirection: "column",
           justifyContent: "center",
           alignItems: "center",
-          gap: 2,
+          gap: 1.5,
         }}
       >
         <TextField
@@ -146,6 +147,7 @@ const RegisterForm = ({
         <Button
           type="submit"
           variant="contained"
+          disabled={isSubmitting}
           sx={{
             mt: 2,
             width: "100%",

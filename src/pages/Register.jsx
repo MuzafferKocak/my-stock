@@ -28,7 +28,6 @@ const Register = () => {
         spacing={2}
         sx={{
           height: "100%",
-          
         }}
       >
         <Grid item xs={12} md={6}>
@@ -65,7 +64,6 @@ const Register = () => {
               actions.resetForm();
               actions.setSubmitting();
             }}
-            // component={(props) =>}
           >
             {(formikProps) => (
               <Box
@@ -74,7 +72,6 @@ const Register = () => {
                   flexDirection: "column",
                   justifyContent: "center",
                   alignItems: "center",
-                  
                 }}
               >
                 <RegisterForm {...formikProps} />
@@ -82,7 +79,7 @@ const Register = () => {
             )}
           </Formik>
 
-          <Box sx={{ textAlign: "center", mt: 2 }}>
+          <Box sx={{ textAlign: "center", mt: 1 }}>
             <Link to="/">Do you have an account?</Link>
           </Box>
         </Grid>

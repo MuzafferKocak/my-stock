@@ -6,27 +6,12 @@ import LockIcon from "@mui/icons-material/Lock";
 import image from "../assets/stack.jpg";
 import { Link } from "react-router-dom";
 import Box from "@mui/material/Box";
-import TextField from "@mui/material/TextField";
-import { Button } from "@mui/material";
 import { Formik } from "formik";
-import { object, string } from "yup";
 import useApiRequest from "../services/useApiRequest";
+import LoginForm, { loginSchema } from "../components/LoginForm";
 
 const Login = () => {
   const { login } = useApiRequest();
-  const loginSchema = object({
-    email: string()
-      .email("geben Sie ein Gültiges E-mail")
-      .required("E-mail ist erforderlich"),
-    password: string()
-      .required("Passwort ist erforderlich")
-      .min(8, "Passwort muss min. 8 zeichen lang sein")
-      .max(16, "Paswort muss max. 16 zeichen lang sein")
-      .matches(/\d+/, "Passwort muss ein Zahl haben")
-      .matches(/[a-z]+/, "Passwort muss ein klein buchstaben haben")
-      .matches(/[A-Z]+/, "Passwort muss ein gross buchstaben haben")
-      .matches(/[@$!%*?&]+/, "Passwort muss ein Sonderzeichen(@$!%*?&) haben"),
-  });
 
   return (
     <Container maxWidth="lg">
@@ -40,9 +25,9 @@ const Login = () => {
         justifyContent="center"
         alignItems="center"
         direction="row-reverse"
-        spacing={3}
+        spacing={2}
         sx={{
-          height: "100vh",
+          height: "100%",
         }}
       >
         <Grid item xs={12} md={6}>
@@ -59,7 +44,7 @@ const Login = () => {
           <Typography
             variant="h4"
             align="center"
-            mb={2}
+            mb={1}
             color="secondary.light"
           >
             Login
@@ -73,83 +58,16 @@ const Login = () => {
               actions.setSubmitting(false);
             }}
           >
-            {({
-              values,
-              handleChange,
-              handleBlur,
-              touched,
-              errors,
-              isSubmitting,
-              handleSubmit,
-            }) => (
+            {(formikProps) => (
               <Box
-                component="form"
-                onSubmit={handleSubmit}
                 sx={{
                   display: "flex",
+                  flexDirection: "column",
                   justifyContent: "center",
                   alignItems: "center",
-                  width: "450px",
-                  maxWidth: "500px",
-                  m: "auto",
-                  
                 }}
               >
-                <Box sx={{ display: "flex", flexDirection: "column", gap: 2, width:"100%" }}>
-                  <TextField
-                    label="Email"
-                    name="email"
-                    id="email"
-                    type="email"
-                    variant="outlined"
-                    value={values.email}
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                    error={touched.email && Boolean(errors.email)}
-                    helperText={touched.email && errors.email}
-                    sx={{
-                      width: "100%",
-                      maxWidth: "100%",
-                      "@media (max-width:600px)": {
-                        width: "80%",
-                      },
-                    }}
-                  />
-                  <TextField
-                    label="password"
-                    name="password"
-                    id="password"
-                    type="password"
-                    variant="outlined"
-                    value={values.password}
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                    error={touched.password && Boolean(errors.password)}
-                    helperText={touched.password && errors.password}
-                    sx={{
-                      width: "100%",
-                      maxWidth: "100%",
-                      "@media (max-width:600px)": {
-                        width: "80%",
-                      },
-                    }}
-                  />
-                  <Button
-                    variant="contained"
-                    type="submit"
-                    disabled={isSubmitting}
-                    sx={{
-                      mt: 2,
-                      width: "100%",
-                      maxWidth: "100%",
-                      "@media (max-width:600px)": {
-                        width: "80%",
-                      },
-                    }}
-                  >
-                    Submit
-                  </Button>
-                </Box>
+                <LoginForm {...formikProps} />
               </Box>
             )}
           </Formik>

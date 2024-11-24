@@ -21,11 +21,11 @@ const useApiRequest = () => {
     try {
       const { data } = await axiosPublic.post("/auth/login/", userData);
       dispatch(loginSuccess(data));
-      toastSuccessNotify("");
+      toastSuccessNotify("Anmeldung Erfolgreich");
       navigate("/stock");
     } catch (error) {
       dispatch(fetchFail());
-      toastErrorNotify("");
+      toastErrorNotify("Anmeldung nicht Erfolgreich");
       console.log(error);
     }
   };
@@ -41,11 +41,14 @@ const useApiRequest = () => {
   };
   const logout = async () => {
     dispatch(fetchStart());
+    toastSuccessNotify("Abmeldung Erfolgreich");
     try {
       await axiosToken.get("/auth/logout");
       dispatch(logoutSuccess());
+
     } catch (error) {
       dispatch(fetchFail());
+      toastErrorNotify("Abmeldung nicht Erfolgreich");
     }
   };
   return { login, register, logout };
